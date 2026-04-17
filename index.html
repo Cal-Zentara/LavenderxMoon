@@ -685,6 +685,70 @@
       letter-spacing: 0.08em;
     }
 
+    /* ── LIGHT THEME ─────────────────────────────────── */
+    [data-theme="light"] {
+      --bg:          oklch(96% 0.022 295);
+      --surface:     oklch(92% 0.04 295);
+      --surface-hi:  oklch(87% 0.058 295);
+      --gold:        oklch(38% 0.13 295);
+      --gold-dim:    oklch(52% 0.11 295);
+      --text:        oklch(14% 0.04 295);
+      --text-sub:    oklch(32% 0.09 295);
+      --text-muted:  oklch(54% 0.09 295);
+      --border:      oklch(80% 0.06 295);
+      --border-hi:   oklch(68% 0.09 295);
+    }
+    [data-theme="light"] .nav.scrolled {
+      background: oklch(95% 0.025 295 / 0.94);
+    }
+    [data-theme="light"] .hero::before {
+      background: radial-gradient(ellipse 60% 70% at 75% 50%, oklch(84% 0.10 295 / 0.45) 0%, transparent 65%);
+    }
+    [data-theme="light"] .service-row:hover {
+      background: oklch(89% 0.045 295 / 0.7);
+    }
+    [data-theme="light"] .testi-slide p {
+      color: oklch(28% 0.09 295);
+    }
+    [data-theme="light"] .testi-btn {
+      border-color: oklch(66% 0.09 295);
+    }
+    [data-theme="light"] .testi-btn:hover {
+      background: oklch(88% 0.05 295);
+    }
+    [data-theme="light"] .testi-dot {
+      background: oklch(70% 0.07 295);
+    }
+    [data-theme="light"] .btn-primary {
+      color: oklch(98% 0 0);
+    }
+    [data-theme="light"] .btn-primary:hover {
+      background: oklch(30% 0.13 295);
+      border-color: oklch(30% 0.13 295);
+    }
+
+    /* ── THEME TOGGLE ────────────────────────────────── */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border-hi);
+      color: var(--text-sub);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .theme-toggle:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
     /* ── ANIMATIONS ─────────────────────────────────── */
     .r {
       opacity: 0;
@@ -777,7 +841,12 @@
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#shop">Shop</a></li>
         </ul>
-        <a href="#book" class="btn btn-primary">Book a Session &nbsp;→</a>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);flex-shrink:0;">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+            <span id="theme-icon">☽</span>
+          </button>
+          <a href="#book" class="btn btn-primary">Book a Session &nbsp;→</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -1124,6 +1193,20 @@
 
     document.getElementById('testi-prev').addEventListener('click', () => goTo(current - 1));
     document.getElementById('testi-next').addEventListener('click', () => goTo(current + 1));
+
+    // Theme toggle
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const saved = localStorage.getItem('lm-theme') || 'dark';
+    html.dataset.theme = saved;
+    themeIcon.textContent = saved === 'dark' ? '☽' : '☀';
+    themeToggle.addEventListener('click', () => {
+      const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      html.dataset.theme = next;
+      localStorage.setItem('lm-theme', next);
+      themeIcon.textContent = next === 'dark' ? '☽' : '☀';
+    });
   </script>
 
 </body>
