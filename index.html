@@ -631,6 +631,102 @@
       text-transform: uppercase;
     }
 
+    /* ── MEMBERSHIPS ────────────────────────────────── */
+    .membership-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-6);
+      max-width: 820px;
+      margin-inline: auto;
+    }
+    .membership-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: var(--sp-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+      transition: border-color 0.2s;
+    }
+    .membership-card:hover { border-color: var(--border-hi); }
+    .membership-card.featured {
+      border-color: var(--gold-dim);
+      background: var(--surface-hi);
+    }
+    .membership-card.featured:hover { border-color: var(--gold); }
+    .membership-badge {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 3px var(--sp-3);
+      align-self: flex-start;
+    }
+    .membership-tier {
+      font-family: var(--ff-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .membership-price {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--text);
+      line-height: 1;
+    }
+    .membership-price span {
+      font-family: var(--ff-body);
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--text-sub);
+      letter-spacing: 0.06em;
+    }
+    .membership-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border);
+    }
+    .membership-features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      flex: 1;
+    }
+    .membership-features li {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      line-height: 1.6;
+    }
+    .membership-features li::before {
+      content: '—';
+      color: var(--gold-dim);
+      flex-shrink: 0;
+      font-family: var(--ff-body);
+    }
+    .membership-features .coming-soon {
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      border: 1px solid var(--gold-dim);
+      padding: 2px 6px;
+      vertical-align: middle;
+      margin-left: var(--sp-2);
+    }
+    .membership-card .btn { margin-top: var(--sp-6); align-self: stretch; justify-content: center; }
+    @media (max-width: 640px) {
+      .membership-grid { grid-template-columns: 1fr; max-width: 100%; }
+    }
+
     /* ── FINAL CTA ──────────────────────────────────── */
     .cta-final {
       padding-block: clamp(var(--sp-16), 9vw, var(--sp-32));
@@ -683,6 +779,15 @@
       font-size: 0.67rem;
       color: var(--text-muted);
       letter-spacing: 0.08em;
+    }
+    .footer-hours {
+      font-size: 0.67rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-align: center;
+      flex-basis: 100%;
+      padding-top: var(--sp-2);
+      border-top: 1px solid var(--border);
     }
 
     /* ── LIGHT THEME ─────────────────────────────────── */
@@ -840,6 +945,7 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#shop">Shop</a></li>
+          <li><a href="#memberships">Memberships</a></li>
         </ul>
         <div style="display:flex;align-items:center;gap:var(--sp-3);flex-shrink:0;">
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
@@ -1121,6 +1227,52 @@
   </section>
 
 
+  <!-- ── MEMBERSHIPS ──────────────────────────────────── -->
+  <section class="section" id="memberships">
+    <div class="wrap">
+
+      <div class="section-head r" style="text-align:center;">
+        <span class="eyebrow">Spiritual Coaching Memberships</span>
+        <h2>Ongoing Guidance,<br>Every Month</h2>
+        <p style="margin-inline:auto;">For those who want continued support — not just a single session.</p>
+      </div>
+
+      <div class="membership-grid">
+
+        <div class="membership-card r">
+          <span class="membership-tier">Monthly</span>
+          <div class="membership-price">$150 <span>/ month</span></div>
+          <p class="membership-desc">One session a month covering any modality — tarot, energy work, coaching, channeling, and more. Subscription style, cancel anytime.</p>
+          <ul class="membership-features">
+            <li>1 session per month</li>
+            <li>All modalities included — tarot, oracle, Reiki, channeling, spellwork, spiritual coaching</li>
+            <li>Soul Blueprint reading available</li>
+            <li>Past life regression <span class="coming-soon">Coming Soon</span></li>
+          </ul>
+          <!-- REPLACE: add membership signup/booking link -->
+          <a href="#book" class="btn btn-ghost">Get Started &nbsp;→</a>
+        </div>
+
+        <div class="membership-card featured r d1">
+          <span class="membership-badge">Most Popular</span>
+          <span class="membership-tier">Weekly</span>
+          <div class="membership-price">$500 <span>/ month</span></div>
+          <p class="membership-desc">One session every week — deep, ongoing spiritual guidance across all modalities including full Soul Blueprint and energy healing.</p>
+          <ul class="membership-features">
+            <li>1 session per week (4/month)</li>
+            <li>All modalities included — tarot, oracle, Reiki, channeling, spellwork, spiritual coaching</li>
+            <li>Full Soul Blueprint reading included</li>
+            <li>Past life regression <span class="coming-soon">Coming Soon</span></li>
+          </ul>
+          <!-- REPLACE: add membership signup/booking link -->
+          <a href="#book" class="btn btn-primary">Get Started &nbsp;→</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
   <!-- ── FINAL CTA ────────────────────────────────────── -->
   <section class="cta-final" id="book">
     <div class="wrap">
@@ -1132,8 +1284,7 @@
       <span class="eyebrow r d1">Ready?</span>
       <h2 class="r d2">Clarity Is One Session Away</h2>
       <div class="r d3">
-        <!-- REPLACE: add booking link (Acuity / Square) to href -->
-        <a href="#" class="btn btn-primary">Book Your Session &nbsp;→</a>
+        <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book Your Session &nbsp;→</a>
       </div>
       <p class="cta-phone r d4">
         Or text <a href="tel:+17145197650">(714) 519-7650</a> for a free consultation
@@ -1148,6 +1299,7 @@
       <div class="footer-inner">
         <span class="footer-brand">Lavender Moon</span>
         <span class="footer-right">© 2026 &nbsp;·&nbsp; Orange County, California</span>
+        <span class="footer-hours">Hours: Mon – Fri 4pm – 12am &nbsp;·&nbsp; Sat 12pm – 8pm &nbsp;·&nbsp; Closed Sundays</span>
       </div>
     </div>
   </footer>
