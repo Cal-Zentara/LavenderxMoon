@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mediumship Reading Online | Spirit Communication | Lavender Moon</title>
+  <meta name="description" content="Book a mediumship reading with Dalena — certified practicing medium offering spirit communication and intuitive guidance. Virtual sessions via Zoom or phone.">
+  <meta name="keywords" content="mediumship reading online, medium reading, spirit communication, online medium, virtual mediumship, connect with loved ones, spirit guides reading">
+  <meta property="og:title" content="Mediumship Reading Online | Spirit Communication | Lavender Moon">
+  <meta property="og:description" content="Book a mediumship reading with Dalena — certified practicing medium offering spirit communication and intuitive guidance. Virtual sessions via Zoom or phone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lavendermoontarot.com/mediumship/">
+  <link rel="canonical" href="https://lavendermoontarot.com/mediumship/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    ul   { list-style: none; }
+
+    :root {
+      --bg:          oklch(11% 0.022 295);
+      --surface:     oklch(15% 0.045 295);
+      --surface-hi:  oklch(20% 0.065 295);
+      --gold:        oklch(73% 0.08 57);
+      --gold-dim:    oklch(56% 0.06 57);
+      --text:        oklch(93% 0.01 78);
+      --text-sub:    oklch(72% 0.022 295);
+      --text-muted:  oklch(65% 0.025 295);
+      --border:      oklch(25% 0.045 295);
+      --border-hi:   oklch(33% 0.065 295);
+
+      --ff-display: 'Cinzel', serif;
+      --ff-body:    'Josefin Sans', sans-serif;
+
+      --sp-1:  4px;  --sp-2:  8px;  --sp-3:  12px; --sp-4:  16px;
+      --sp-5:  20px; --sp-6:  24px; --sp-8:  32px;  --sp-12: 48px;
+      --sp-16: 64px; --sp-24: 96px; --sp-32: 128px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .wrap { max-width: 1100px; margin-inline: auto; padding-inline: var(--sp-6); }
+
+    /* ── SKIP LINK ── */
+    .skip-link {
+      position: absolute; top: -99px; left: var(--sp-4);
+      background: var(--gold); color: var(--bg);
+      padding: var(--sp-2) var(--sp-4);
+      font-family: var(--ff-body); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+      z-index: 999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: var(--sp-4); }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding-block: var(--sp-4);
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+    .nav.scrolled {
+      background: oklch(11% 0.022 295 / 0.92);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: var(--sp-6);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0;
+    }
+    .nav-logo-img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+    .nav-brand-text {
+      font-family: var(--ff-display); font-size: 0.82rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-sub);
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: var(--sp-8); flex: 1; justify-content: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-sub); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .btn {
+      display: inline-flex; align-items: center;
+      font-family: var(--ff-body); font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: var(--sp-3) var(--sp-6); min-height: 44px;
+      cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--bg);
+      border: 1px solid var(--gold); font-weight: 600;
+    }
+    .btn-primary:hover { background: oklch(65% 0.09 57); border-color: oklch(65% 0.09 57); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border-hi);
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .theme-toggle {
+      background: none; border: 1px solid var(--border-hi); color: var(--text-sub);
+      width: 34px; height: 34px; border-radius: 50%; font-size: 0.95rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s; flex-shrink: 0; line-height: 1;
+    }
+    .theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+    .nav-hamburger {
+      display: none; background: none; border: 1px solid var(--border-hi);
+      color: var(--text-sub); width: 34px; height: 34px; border-radius: 50%;
+      cursor: pointer; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-hamburger:hover { border-color: var(--gold); color: var(--gold); }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: var(--bg); flex-direction: column;
+      align-items: center; justify-content: center; gap: var(--sp-8);
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: var(--ff-display); font-size: 1.1rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-sub);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu-close {
+      position: absolute; top: var(--sp-6); right: var(--sp-6);
+      background: none; border: none; color: var(--text-muted);
+      font-size: 1.2rem; cursor: pointer; padding: var(--sp-2);
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+    }
+
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      font-size: 0.67rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-dim); font-family: var(--ff-body);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: clamp(120px, 14vw, 160px);
+      padding-bottom: clamp(var(--sp-16), 8vw, var(--sp-32));
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 50% 60% at 80% 50%, oklch(35% 0.10 295 / 0.25) 0%, transparent 65%);
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center;
+    }
+    .hero-eyebrow { margin-bottom: var(--sp-4); }
+    .hero h1 {
+      font-family: var(--ff-display); font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 400; line-height: 1.1; letter-spacing: 0.02em;
+      margin-bottom: var(--sp-6);
+    }
+    .hero-sub {
+      font-size: clamp(0.88rem, 1.5vw, 1rem); color: var(--text-sub);
+      line-height: 1.8; max-width: 48ch; margin-bottom: var(--sp-8);
+    }
+    .hero-ctas { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
+    .hero-image-wrap {
+      position: relative;
+    }
+    .hero-image-wrap img {
+      width: 100%; border-radius: 2px;
+      filter: brightness(0.85) contrast(1.05);
+    }
+    .hero-price-tag {
+      position: absolute; bottom: var(--sp-6); left: var(--sp-6);
+      background: oklch(11% 0.022 295 / 0.88);
+      border: 1px solid var(--border-hi);
+      padding: var(--sp-3) var(--sp-5);
+      backdrop-filter: blur(8px);
+    }
+    .hero-price-label {
+      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 2px;
+    }
+    .hero-price-value {
+      font-family: var(--ff-display); font-size: 1.4rem; color: var(--gold);
+    }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-image-wrap { display: none; }
+    }
+
+    /* ── LEAD BAR ── */
+    .lead-bar {
+      background: var(--surface); border-block: 1px solid var(--border);
+      padding-block: var(--sp-3);
+    }
+    .lead-bar-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: var(--sp-6); flex-wrap: wrap;
+      font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-muted);
+    }
+    .lead-bar-inner a { color: var(--gold-dim); transition: color 0.2s; }
+    .lead-bar-inner a:hover { color: var(--gold); }
+
+    /* ── SECTION ── */
+    .section { padding-block: clamp(var(--sp-16), 8vw, var(--sp-24)); }
+    .section-head {
+      margin-bottom: clamp(var(--sp-12), 5vw, var(--sp-16));
+    }
+    .section-head .eyebrow { display: block; margin-bottom: var(--sp-3); }
+    .section-head h2 {
+      font-family: var(--ff-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 400; letter-spacing: 0.03em; margin-bottom: var(--sp-4);
+    }
+    .section-head p { color: var(--text-sub); max-width: 52ch; }
+
+    /* ── WHAT YOU GET ── */
+    .what-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--sp-6);
+    }
+    .what-item {
+      padding: var(--sp-8) var(--sp-6);
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .what-num {
+      font-family: var(--ff-display); font-size: 0.72rem;
+      letter-spacing: 0.18em; color: var(--gold-dim);
+      margin-bottom: var(--sp-4);
+    }
+    .what-item h3 {
+      font-family: var(--ff-display); font-size: 1rem; font-weight: 400;
+      letter-spacing: 0.06em; margin-bottom: var(--sp-3);
+    }
+    .what-item p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.8; }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: grid; grid-template-columns: 48px 1fr; gap: var(--sp-6);
+      padding-block: var(--sp-6);
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: var(--ff-display); font-size: 1.4rem; font-weight: 400;
+      color: var(--gold-dim); line-height: 1; padding-top: 4px;
+    }
+    .step-body h3 {
+      font-family: var(--ff-display); font-size: 0.95rem; font-weight: 400;
+      letter-spacing: 0.06em; margin-bottom: var(--sp-2);
+    }
+    .step-body p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.8; }
+
+    /* ── PRICING ── */
+    .pricing-wrap {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: clamp(var(--sp-8), 4vw, var(--sp-12));
+      max-width: 680px;
+    }
+    .pricing-wrap .eyebrow { display: block; margin-bottom: var(--sp-6); }
+    .pricing-row {
+      display: grid; grid-template-columns: 1fr auto auto;
+      align-items: center; gap: var(--sp-4);
+      padding-block: var(--sp-5);
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-row:last-of-type { border-bottom: none; margin-bottom: var(--sp-8); }
+    .pricing-name { font-size: 0.85rem; color: var(--text); letter-spacing: 0.04em; }
+    .pricing-dur { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; white-space: nowrap; }
+    .pricing-price {
+      font-family: var(--ff-display); font-size: 1.2rem; color: var(--gold); white-space: nowrap;
+    }
+    .pricing-cta-wrap { display: flex; gap: var(--sp-4); flex-wrap: wrap; align-items: center; }
+    .pricing-note { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; }
+
+    /* ── TESTIMONIALS ── */
+    .testi-static { display: flex; flex-direction: column; gap: var(--sp-6); max-width: 680px; }
+    .testi-card {
+      padding: var(--sp-8) var(--sp-8);
+      background: var(--surface); border: 1px solid var(--border);
+      position: relative;
+    }
+    .testi-card::before {
+      content: '\201C';
+      position: absolute; top: var(--sp-4); left: var(--sp-6);
+      font-family: var(--ff-display); font-size: 3rem;
+      color: var(--gold-dim); line-height: 1; opacity: 0.5;
+    }
+    .testi-card p {
+      font-size: 1rem; color: var(--text-sub);
+      line-height: 1.8; font-style: italic;
+      padding-top: var(--sp-6);
+    }
+    .testi-card cite {
+      display: block; margin-top: var(--sp-4);
+      font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold-dim); font-style: normal;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; max-width: 680px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question {
+      width: 100%; background: none; border: none; text-align: left;
+      padding-block: var(--sp-6); cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--sp-4); color: var(--text);
+    }
+    .faq-question span:first-child {
+      font-family: var(--ff-body); font-size: 0.9rem; letter-spacing: 0.04em; line-height: 1.5;
+    }
+    .faq-icon {
+      font-size: 1.1rem; color: var(--gold-dim); flex-shrink: 0;
+      transition: transform 0.25s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      font-size: 0.85rem; color: var(--text-sub); line-height: 1.9;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.25s;
+    }
+    .faq-item.open .faq-answer { max-height: 400px; padding-bottom: var(--sp-6); }
+
+    /* ── INTERNAL LINK STRIP ── */
+    .internal-link-strip {
+      padding-block: var(--sp-8);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .internal-link-strip p {
+      font-size: 0.82rem; color: var(--text-muted); letter-spacing: 0.04em;
+    }
+    .internal-link-strip a {
+      color: var(--gold-dim); transition: color 0.2s;
+    }
+    .internal-link-strip a:hover { color: var(--gold); }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      padding-block: clamp(var(--sp-16), 9vw, var(--sp-24));
+      text-align: center; border-top: 1px solid var(--border);
+    }
+    .cta-final .eyebrow { display: block; margin-bottom: var(--sp-4); }
+    .cta-final h2 {
+      font-family: var(--ff-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 400; letter-spacing: 0.03em;
+      margin-bottom: var(--sp-6); max-width: 20ch; margin-inline: auto;
+    }
+    .cta-final p {
+      color: var(--text-sub); font-size: 0.9rem; max-width: 44ch;
+      margin-inline: auto; margin-bottom: var(--sp-8);
+    }
+    .cta-phone { font-size: 0.77rem; color: var(--text-muted); letter-spacing: 0.06em; margin-top: var(--sp-5); }
+    .cta-phone a { color: var(--gold-dim); transition: color 0.2s; }
+    .cta-phone a:hover { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding-block: var(--sp-8);
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--sp-6); flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-family: var(--ff-display); font-size: 0.8rem;
+      letter-spacing: 0.12em; color: var(--text-sub);
+    }
+    .footer-right { font-size: 0.67rem; color: var(--text-muted); letter-spacing: 0.08em; }
+    .footer-hours {
+      font-size: 0.67rem; color: var(--text-muted); letter-spacing: 0.06em;
+      text-align: center; flex-basis: 100%; padding-top: var(--sp-2);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── LIGHT THEME ── */
+    [data-theme="light"] {
+      --bg:          oklch(96% 0.022 295);
+      --surface:     oklch(92% 0.04 295);
+      --surface-hi:  oklch(87% 0.058 295);
+      --gold:        oklch(38% 0.13 295);
+      --gold-dim:    oklch(52% 0.11 295);
+      --text:        oklch(14% 0.04 295);
+      --text-sub:    oklch(32% 0.09 295);
+      --text-muted:  oklch(38% 0.09 295);
+      --border:      oklch(80% 0.06 295);
+      --border-hi:   oklch(68% 0.09 295);
+    }
+    [data-theme="light"] .nav.scrolled { background: oklch(95% 0.025 295 / 0.94); }
+    [data-theme="light"] .btn-primary { color: oklch(98% 0 0); }
+
+    /* ── SCROLL REVEAL ── */
+    .r { opacity: 0; transform: translateY(18px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .r.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.32s; }
+    @media (prefers-reduced-motion: reduce) { .r { opacity: 1; transform: none; transition: none; } }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .nav-logo-img { width: 28px; height: 28px; }
+      .pricing-row { grid-template-columns: 1fr auto; }
+      .pricing-dur { display: none; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Mediumship Reading",
+    "description": "1:1 virtual mediumship reading with Dalena — certified practicing medium. Spirit communication, intuitive guidance, and connection with loved ones who have passed. Sessions via Zoom or phone.",
+    "url": "https://lavendermoontarot.com/mediumship/",
+    "serviceType": "Mediumship Reading",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "Lavender Moon",
+      "url": "https://lavendermoontarot.com/",
+      "telephone": "+17145197650"
+    },
+    "areaServed": { "@type": "Country", "name": "United States" },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceType": "Online",
+      "availableLanguage": "English"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "30-Minute Mediumship Reading",
+        "price": "44",
+        "priceCurrency": "USD",
+        "url": "https://cal-zentara.github.io/lavender-moon-intake/"
+      },
+      {
+        "@type": "Offer",
+        "name": "1-Hour Mediumship Reading",
+        "price": "77",
+        "priceCurrency": "USD",
+        "url": "https://cal-zentara.github.io/lavender-moon-intake/"
+      }
+    ],
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "Everything resonated deeply. Thank you for your incredible insight and guidance."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "I came with so much heaviness, but your reading brought me peace and clarity. You have a truly magical gift."
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "5"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">
+          <img src="../assets/7384E367-94A1-4CEC-8BF3-B7EF95E02DEF.png" alt="Lavender Moon logo" class="nav-logo-img">
+          <span class="nav-brand-text">Lavender Moon</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#shop">Shop</a></li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);flex-shrink:0;">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+            <span id="theme-icon">☽</span>
+          </button>
+          <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+              <line x1="0" y1="1" x2="16" y2="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="0" y1="6" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="0" y1="11" x2="16" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book a Reading &nbsp;→</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/#services">Services</a>
+    <a href="/#about">About</a>
+    <a href="/#testimonials">Testimonials</a>
+    <a href="/#shop">Shop</a>
+    <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book a Reading &nbsp;→</a>
+  </div>
+
+  <main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <span class="eyebrow hero-eyebrow r">Mediumship &nbsp;·&nbsp; Spirit Communication</span>
+          <h1 class="r d1">Messages From<br>Those Who Are<br>Still With You</h1>
+          <p class="hero-sub r d2">
+            Dalena is a practicing medium — her gift developed spontaneously after a near-death experience.
+            She channels only what comes through clearly, with compassion and integrity. No manufactured messages.
+            No performance. Just what's actually present.
+          </p>
+          <div class="hero-ctas r d3">
+            <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book a Session &nbsp;→</a>
+            <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap r d1">
+          <img src="../assets/0D5C05C4-6CF5-4FCF-9C32-C464ACE58DBA (1) - Copy.png" alt="Tarot cards and crystals on dark velvet" loading="lazy">
+          <div class="hero-price-tag">
+            <div class="hero-price-label">Starting at</div>
+            <div class="hero-price-value">$44</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD BAR -->
+  <div class="lead-bar">
+    <div class="wrap">
+      <div class="lead-bar-inner">
+        <p>Text for a free consultation — spellwork, life direction &amp; intuitive guidance</p>
+        <a href="tel:+17145197650">(714) 519-7650</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <section class="section" id="what-you-get">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">What's Included</span>
+        <h2>What Happens in a Mediumship Session</h2>
+        <p>Every session is live, one-on-one, and grounded — not theatrical.</p>
+      </div>
+      <div class="what-grid">
+        <div class="what-item r">
+          <div class="what-num">01</div>
+          <h3>Spirit Connection</h3>
+          <p>Dalena opens herself to the energies around you — this can include loved ones who have passed, spirit guides, or energetic presences affecting your life. She receives and delivers what comes through, nothing more.</p>
+        </div>
+        <div class="what-item r d1">
+          <div class="what-num">02</div>
+          <h3>Clear, Honest Delivery</h3>
+          <p>What comes through gets communicated directly and as accurately as possible. Dalena doesn't interpret to make it fit — she tells you what she's receiving and lets you work with what resonates.</p>
+        </div>
+        <div class="what-item r d2">
+          <div class="what-num">03</div>
+          <h3>Integrated Guidance</h3>
+          <p>Mediumship is woven together with Dalena's intuitive and tarot abilities so the session feels grounded and useful — not just a relay of spirit messages, but real clarity you can apply to your life.</p>
+        </div>
+        <div class="what-item r d3">
+          <div class="what-num">04</div>
+          <h3>Healing Through Connection</h3>
+          <p>For many clients, knowing that a loved one is present — and receiving a message that only they would know — brings a kind of peace that nothing else can. That's the work Dalena does.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works" style="background: var(--surface); border-block: 1px solid var(--border);">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">The Process</span>
+        <h2>How It Works</h2>
+        <p>Simple, entirely online, and held with care.</p>
+      </div>
+      <div class="steps">
+        <div class="step r">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Fill Out the Intake Form</h3>
+            <p>A short form collects your name, the service you want, and your date of birth. Takes two minutes. This gives Dalena basic information before the session opens.</p>
+          </div>
+        </div>
+        <div class="step r d1">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Choose Your Appointment</h3>
+            <p>After submitting the form, you're taken directly to Dalena's Google Calendar to pick a time. Available Monday–Friday 4pm–12am PT, Saturday 12pm–8pm PT.</p>
+          </div>
+        </div>
+        <div class="step r d2">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Join via Zoom or Phone</h3>
+            <p>At your session time, connect with Dalena over Zoom or by phone — whichever you're comfortable with. No special setup required.</p>
+          </div>
+        </div>
+        <div class="step r d3">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Receive What Comes Through</h3>
+            <p>Dalena opens the session and allows what's present to come through. She delivers messages as they arrive — clearly and without embellishment. You can ask questions and guide the session toward what matters most.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">Sessions & Pricing</span>
+        <h2>Choose Your Session</h2>
+        <p>Both options include mediumship integrated with intuitive guidance — live, one-on-one.</p>
+      </div>
+      <div class="pricing-wrap r">
+        <span class="eyebrow">Live Sessions via Zoom or Phone</span>
+        <div class="pricing-row">
+          <span class="pricing-name">1:1 Virtual Mediumship & Intuitive Guidance</span>
+          <span class="pricing-dur">30 minutes</span>
+          <span class="pricing-price">$44</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-name">1:1 Virtual Mediumship & Intuitive Guidance</span>
+          <span class="pricing-dur">1 hour</span>
+          <span class="pricing-price">$77</span>
+        </div>
+        <div class="pricing-cta-wrap">
+          <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book Your Session &nbsp;→</a>
+          <span class="pricing-note">Secured via Google Calendar &nbsp;·&nbsp; Zoom or phone</span>
+        </div>
+      </div>
+      <p style="margin-top: var(--sp-6); font-size: 0.78rem; color: var(--text-muted);">
+        Want a deeper look at your own soul's patterns? Explore the <a href="/soul-blueprint-reading/" style="color: var(--gold-dim); transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dim)'">Soul Blueprint Reading</a> — a 1hr 15min session mapping your soul's architecture across multiple dimensions.
+      </p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" style="background: var(--surface); border-block: 1px solid var(--border);">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">From Clients</span>
+        <h2>What People Say</h2>
+      </div>
+      <div class="testi-static">
+        <div class="testi-card r">
+          <p>Everything resonated deeply. Thank you for your incredible insight and guidance. ✦</p>
+          <cite>Verified Client</cite>
+        </div>
+        <div class="testi-card r d1">
+          <p>I came with so much heaviness, but your reading brought me peace and clarity. You have a truly magical gift.</p>
+          <cite>Verified Client</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently Asked</h2>
+      </div>
+      <div class="faq-list r">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is mediumship?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Mediumship is the ability to perceive and communicate with energies, spirits, and consciousnesses beyond the physical — including loved ones who have passed, spirit guides, or energetic presences connected to you. A medium acts as a bridge, receiving and delivering those impressions as clearly and accurately as possible. Dalena's mediumship isn't performative — she opens to what's genuinely present and reports it honestly.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can you guarantee you'll connect with a specific person?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            No — and any medium who promises a specific connection in advance isn't being honest with you. Dalena can only work with what comes through. Sometimes the person you're hoping to hear from shows up immediately and clearly. Other times, a different presence comes through first — one that turns out to be exactly what you needed. She doesn't manufacture messages to fit expectations, and that's what makes what does come through meaningful.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How did Dalena develop her mediumship abilities?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Dalena's spiritual gifts began in childhood and grew steadily over the years. Her mediumship opened fully following a near-death experience — after which she began experiencing spontaneous spirit communication and a heightened sensitivity to energy she couldn't ignore. She's spent years since then developing these abilities through intentional spiritual practice, study, and lived experience. She's certified in channeling and brings both eastern and western practices — drawn from her ancestral lineage — into her work.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What should I expect during a mediumship session?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Sessions are calm and conversational — not dramatic. Dalena will open by tuning in to the energies around you and sharing what she's receiving. This might be impressions, images, emotions, names, or specific details. She'll describe what's coming through as clearly as she can and check in with you as she goes. You're welcome to confirm, ask questions, or redirect toward what matters most to you. Sessions often feel more like a meaningful conversation than a formal "reading."
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is mediumship the same as channeling?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            They're related but different. Mediumship is specifically about connecting with spirits and energies around a person — including loved ones who have passed and spirit guides. Channeling is a broader ability to receive and transmit messages or information from higher-dimensional sources, guides, or collective energies. Dalena is certified in channeling and uses both in her work — in a mediumship session, the two often overlap naturally.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How do I prepare for a mediumship reading?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Come with an open mind and a quiet space where you won't be interrupted. If there's someone specific you're hoping to connect with, hold that person in your heart before the session — but stay open to whoever or whatever shows up. You don't need to have questions prepared, though you can bring them. The most important thing is that you're genuinely open to receiving — not trying to test or debunk. That openness makes space for what needs to come through.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can mediumship be done remotely over Zoom or phone?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Spirit and energy are not limited by physical distance. Dalena's clients come from all over the country and remote sessions work just as well as in-person ones — sometimes better, because you're in your own space and more at ease. Whether you join by Zoom or call in by phone, the session is fully present. Choose whatever format feels most comfortable.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What if nothing comes through in my session?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            It's rare, but mediumship — by its nature — can't be forced. If a specific connection isn't coming through strongly, Dalena will tell you that honestly rather than fabricate it. She'll still work with whatever is present — other energies, intuitive impressions, or tarot guidance — so the session is never empty. Her integrity is more important to her than telling you what you want to hear, and that's what makes the messages that do come through trustworthy.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-final">
+    <div class="wrap">
+      <span class="eyebrow r">Ready?</span>
+      <h2 class="r d1">Book Your Mediumship Session</h2>
+      <p class="r d2">30 minutes or 1 hour. Zoom or phone. Available worldwide.</p>
+      <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary r d3">Book a Session &nbsp;→</a>
+      <p class="cta-phone r">Or text for a free consultation: <a href="tel:+17145197650">(714) 519-7650</a></p>
+    </div>
+  </section>
+
+  <!-- INTERNAL LINK -->
+  <div class="internal-link-strip">
+    <div class="wrap">
+      <p class="r">Want guidance on your own path? Start with a <a href="/tarot-reading/">Tarot Reading</a>.</p>
+    </div>
+  </div>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <span class="footer-brand">Lavender Moon</span>
+        <span class="footer-right">© 2026 &nbsp;·&nbsp; <a href="/" style="color:inherit;">lavendermoontarot.com</a></span>
+        <span class="footer-hours">Hours: Mon – Fri 4pm – 12am &nbsp;·&nbsp; Sat 12pm – 8pm &nbsp;·&nbsp; Closed Sundays</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    // Scroll reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+    // Theme toggle
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    const saved = localStorage.getItem('lm-theme');
+    if (saved) { document.documentElement.setAttribute('data-theme', saved); icon.textContent = saved === 'light' ? '☀' : '☽'; }
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('lm-theme', next);
+      icon.textContent = next === 'light' ? '☀' : '☽';
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); hamburger.setAttribute('aria-expanded', 'true'); });
+    closeBtn.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded', 'false'); });
+        if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+  </script>
+
+</body>
+</html>
