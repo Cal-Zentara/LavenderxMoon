@@ -136,6 +136,53 @@
       border-color: var(--purple);
     }
 
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .service-item:hover {
+      border-color: var(--purple);
+      background: oklch(16% 0.04 295);
+    }
+
+    .service-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      accent-color: var(--purple);
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+    }
+
+    .service-item input[type="checkbox"]:focus {
+      border-color: transparent;
+    }
+
+    .service-item.checked {
+      border-color: var(--purple);
+      background: oklch(16% 0.04 295);
+    }
+
+    .service-item span {
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+
     select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
@@ -343,15 +390,14 @@
 
       <div class="form-group">
         <label>Which Service Are You Booking? <span class="req">*</span></label>
-        <select name="service" required>
-          <option value="" disabled selected>Select a service</option>
-          <option>Intuitive Tarot & Spiritual Guidance — 30 min ($44)</option>
-          <option>Intuitive Tarot & Spiritual Guidance — 1 hr ($77)</option>
-          <option>Mini Soul Blueprint Reading — 45 min ($111)</option>
-          <option>Full Soul Blueprint Reading — 1 hr 15 min ($222)</option>
-          <option>Monthly Membership — 1 session/mo ($150/mo)</option>
-          <option>Weekly Membership — 4 sessions/mo ($500/mo)</option>
-        </select>
+        <div class="service-list" id="serviceList">
+          <label class="service-item"><input type="checkbox" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 30 min ($44)"><span>Intuitive Tarot &amp; Spiritual Guidance — 30 min ($44)</span></label>
+          <label class="service-item"><input type="checkbox" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 1 hr ($77)"><span>Intuitive Tarot &amp; Spiritual Guidance — 1 hr ($77)</span></label>
+          <label class="service-item"><input type="checkbox" name="service" value="Mini Soul Blueprint Reading — 45 min ($111)"><span>Mini Soul Blueprint Reading — 45 min ($111)</span></label>
+          <label class="service-item"><input type="checkbox" name="service" value="Full Soul Blueprint Reading — 1 hr 15 min ($222)"><span>Full Soul Blueprint Reading — 1 hr 15 min ($222)</span></label>
+          <label class="service-item"><input type="checkbox" name="service" value="Monthly Membership — 1 session/mo ($150/mo)"><span>Monthly Membership — 1 session/mo ($150/mo)</span></label>
+          <label class="service-item"><input type="checkbox" name="service" value="Weekly Membership — 4 sessions/mo ($500/mo)"><span>Weekly Membership — 4 sessions/mo ($500/mo)</span></label>
+        </div>
       </div>
 
       <div class="divider"></div>
@@ -429,15 +475,29 @@
       'weekly': 'https://square.link/u/gM6WUXcC'
     };
 
+    // Highlight checked service items
+    document.querySelectorAll('.service-item input').forEach(cb => {
+      cb.addEventListener('change', () => {
+        cb.closest('.service-item').classList.toggle('checked', cb.checked);
+      });
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      const checked = [...form.querySelectorAll('[name="service"]:checked')];
+      if (checked.length === 0) {
+        alert('Please select at least one service.');
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
 
-      const service = form.querySelector('[name="service"]').value.toLowerCase();
-      const isMonthly = service.includes('monthly');
-      const isWeekly = service.includes('weekly');
-      const isMembership = isMonthly || isWeekly;
+      const selected = checked.map(c => c.value.toLowerCase());
+      const isWeekly = selected.some(s => s.includes('weekly'));
+      const isMonthly = selected.some(s => s.includes('monthly'));
+      const isMembership = isWeekly || isMonthly;
 
       try {
         const res = await fetch(form.action, {
