@@ -37,6 +37,7 @@
       --sp-2:  8px;
       --sp-3:  12px;
       --sp-4:  16px;
+      --sp-5:  20px;
       --sp-6:  24px;
       --sp-8:  32px;
       --sp-12: 48px;
@@ -870,6 +871,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       .r { opacity: 1; transform: none; transition: none; }
+      .testi-slide { animation: none; }
     }
 
     /* ── MOBILE ─────────────────────────────────────── */
@@ -978,7 +980,7 @@
         muted
         loop
         playsinline
-        poster="../assets/0D5C05C4-6CF5-4FCF-9C32-C464ACE58DBA (1) - Copy.png"
+        poster="assets/0D5C05C4-6CF5-4FCF-9C32-C464ACE58DBA (1) - Copy.png"
       >
         <source src="assets/NewHero.mp4" type="video/mp4">
       </video>
@@ -1154,9 +1156,9 @@
           </div>
         </div>
         <div class="testi-controls">
-          <button class="testi-btn" id="testi-prev">&#8592;</button>
+          <button class="testi-btn" id="testi-prev" aria-label="Previous testimonial">&#8592;</button>
           <div class="testi-dots" id="testi-dots"></div>
-          <button class="testi-btn" id="testi-next">&#8594;</button>
+          <button class="testi-btn" id="testi-next" aria-label="Next testimonial">&#8594;</button>
         </div>
       </div>
 
