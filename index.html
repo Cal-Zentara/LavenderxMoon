@@ -26,7 +26,7 @@
       --gold-dim:    oklch(56% 0.06 57);
       --text:        oklch(93% 0.01 78);
       --text-sub:    oklch(72% 0.022 295);
-      --text-muted:  oklch(50% 0.025 295);
+      --text-muted:  oklch(65% 0.025 295);
       --border:      oklch(25% 0.045 295);
       --border-hi:   oklch(33% 0.065 295);
 
@@ -118,6 +118,28 @@
       border-color: var(--gold-dim);
       color: var(--gold);
     }
+
+    /* ── FOCUS ──────────────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* ── SKIP LINK ──────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--sp-4);
+      background: var(--gold);
+      color: var(--bg);
+      padding: var(--sp-2) var(--sp-4);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      z-index: 999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: var(--sp-2); }
 
     /* ── NAV ────────────────────────────────────────── */
     .nav {
@@ -525,8 +547,8 @@
       background: none;
       border: 1px solid oklch(40% 0.06 295);
       color: var(--gold);
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       font-size: 1rem;
       cursor: pointer;
@@ -800,7 +822,7 @@
       --gold-dim:    oklch(52% 0.11 295);
       --text:        oklch(14% 0.04 295);
       --text-sub:    oklch(32% 0.09 295);
-      --text-muted:  oklch(54% 0.09 295);
+      --text-muted:  oklch(38% 0.09 295);
       --border:      oklch(80% 0.06 295);
       --border-hi:   oklch(68% 0.09 295);
     }
@@ -854,6 +876,76 @@
       border-color: var(--gold);
       color: var(--gold);
     }
+
+    /* ── HAMBURGER ──────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-hi);
+      color: var(--text-sub);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-hamburger:hover { border-color: var(--gold); color: var(--gold); }
+    @media (max-width: 740px) {
+      .nav-hamburger { display: flex; }
+      .nav-cta { display: none; }
+    }
+
+    /* ── MOBILE MENU ─────────────────────────────────── */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: var(--ff-display);
+      font-size: clamp(1.3rem, 6vw, 1.8rem);
+      letter-spacing: 0.1em;
+      color: var(--text-sub);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .btn-primary {
+      font-size: 0.67rem;
+      margin-top: var(--sp-4);
+      padding: var(--sp-3) var(--sp-8);
+      min-height: 44px;
+    }
+    .mobile-menu-close {
+      position: absolute;
+      top: var(--sp-4);
+      right: var(--sp-6);
+      background: none;
+      border: 1px solid var(--border-hi);
+      color: var(--text-sub);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .mobile-menu-close:hover { border-color: var(--gold); color: var(--gold); }
 
     /* ── ANIMATIONS ─────────────────────────────────── */
     .r {
@@ -930,6 +1022,8 @@
 
 <body>
 
+  <a href="#services" class="skip-link">Skip to content</a>
+
   <!-- ── NAV ────────────────────────────────────────── -->
   <nav class="nav" id="nav">
     <div class="wrap">
@@ -953,12 +1047,30 @@
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
             <span id="theme-icon">☽</span>
           </button>
-          <a href="#book" class="btn btn-primary">Book a Session &nbsp;→</a>
+          <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+              <line x1="0" y1="1" x2="16" y2="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="0" y1="6" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="0" y1="11" x2="16" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="#book" class="btn btn-primary nav-cta">Book a Session &nbsp;→</a>
         </div>
       </div>
     </div>
   </nav>
 
+
+  <!-- ── MOBILE MENU ──────────────────────────────────── -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">✕</button>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#shop">Shop</a>
+    <a href="#memberships">Memberships</a>
+    <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book a Session &nbsp;→</a>
+  </div>
 
   <!-- ── HERO ───────────────────────────────────────── -->
   <section class="hero" id="home">
@@ -987,6 +1099,8 @@
     </div>
   </section>
 
+
+  <main id="main-content">
 
   <!-- ── LEAD BAR ────────────────────────────────────── -->
   <div class="lead-bar">
@@ -1037,6 +1151,7 @@
         <img
           src="assets/A51B6781-A7AE-41C6-AC9C-F5B19E9BF177.png"
           alt="Soul Blueprint Reading — astrology and destiny matrix"
+          loading="lazy"
         >
         <div class="soul-bp-banner-caption">
           <span class="eyebrow">Featured</span>
@@ -1065,12 +1180,14 @@
             <img
               src="assets/profile about me.jpeg"
               alt="Dalena — Lavender Moon"
+              loading="lazy"
             >
           </div>
           <div class="cert-frame r">
             <img
               src="assets/IMG_5705 - Copy - Copy.jpeg"
               alt="Certified Spiritual Life Coach — Dalena N Huynh"
+              loading="lazy"
             >
           </div>
         </div>
@@ -1183,6 +1300,7 @@
             src="assets/9F92D20F-C82E-4F7E-B1D3-93E3567D73DC.png"
             alt="One Question Intuitive Tarot Reading"
             class="shop-card-img"
+            loading="lazy"
           >
           <div class="shop-card-body">
             <span class="shop-name">One Question Intuitive Tarot Reading</span>
@@ -1204,6 +1322,7 @@
             src="assets/3434465C-50A6-4F53-B34A-4937678C0FC1 - Copy.png"
             alt="Three Question Intuitive Tarot Reading"
             class="shop-card-img"
+            loading="lazy"
           >
           <div class="shop-card-body">
             <span class="shop-name">Three Question Intuitive Tarot Reading</span>
@@ -1293,6 +1412,8 @@
   </section>
 
 
+  </main>
+
   <!-- ── FOOTER ───────────────────────────────────────── -->
   <footer>
     <div class="wrap">
@@ -1329,8 +1450,9 @@
     let current = 0;
 
     slides.forEach((_, i) => {
-      const d = document.createElement('div');
+      const d = document.createElement('button');
       d.className = 'testi-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
       d.addEventListener('click', () => goTo(i));
       dotsWrap.appendChild(d);
     });
@@ -1345,6 +1467,26 @@
 
     document.getElementById('testi-prev').addEventListener('click', () => goTo(current - 1));
     document.getElementById('testi-next').addEventListener('click', () => goTo(current + 1));
+
+    // Mobile menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileClose = document.getElementById('mobile-menu-close');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', openMenu);
+    mobileClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
     // Theme toggle
     const html = document.documentElement;
