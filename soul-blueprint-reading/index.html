@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soul Blueprint Reading | Past Life & Soul-Level Insight | Lavender Moon</title>
+  <meta name="description" content="Book a Soul Blueprint Reading with Dalena — a deep intuitive session mapping your soul's patterns, past-life influences, and energetic blueprint. 45-min or 1hr 15min virtual sessions.">
+  <meta name="keywords" content="soul blueprint reading, past life reading, soul pattern reading, akashic records reading, soul level insight, energetic blueprint, spiritual reading online, Dalena Lavender Moon">
+  <meta property="og:title" content="Soul Blueprint Reading | Past Life & Soul-Level Insight | Lavender Moon">
+  <meta property="og:description" content="Book a Soul Blueprint Reading with Dalena — a deep intuitive session mapping your soul's patterns, past-life influences, and energetic blueprint. 45-min or 1hr 15min virtual sessions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lavendermoontarot.com/soul-blueprint-reading/">
+  <link rel="canonical" href="https://lavendermoontarot.com/soul-blueprint-reading/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    ul   { list-style: none; }
+
+    :root {
+      --bg:          oklch(11% 0.022 295);
+      --surface:     oklch(15% 0.045 295);
+      --surface-hi:  oklch(20% 0.065 295);
+      --gold:        oklch(73% 0.08 57);
+      --gold-dim:    oklch(56% 0.06 57);
+      --text:        oklch(93% 0.01 78);
+      --text-sub:    oklch(72% 0.022 295);
+      --text-muted:  oklch(65% 0.025 295);
+      --border:      oklch(25% 0.045 295);
+      --border-hi:   oklch(33% 0.065 295);
+
+      --ff-display: 'Cinzel', serif;
+      --ff-body:    'Josefin Sans', sans-serif;
+
+      --sp-1:  4px;  --sp-2:  8px;  --sp-3:  12px; --sp-4:  16px;
+      --sp-5:  20px; --sp-6:  24px; --sp-8:  32px;  --sp-12: 48px;
+      --sp-16: 64px; --sp-24: 96px; --sp-32: 128px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .wrap { max-width: 1100px; margin-inline: auto; padding-inline: var(--sp-6); }
+
+    /* ── SKIP LINK ── */
+    .skip-link {
+      position: absolute; top: -99px; left: var(--sp-4);
+      background: var(--gold); color: var(--bg);
+      padding: var(--sp-2) var(--sp-4);
+      font-family: var(--ff-body); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+      z-index: 999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: var(--sp-4); }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding-block: var(--sp-4);
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+    .nav.scrolled {
+      background: oklch(11% 0.022 295 / 0.92);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: var(--sp-6);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0;
+    }
+    .nav-logo-img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+    .nav-brand-text {
+      font-family: var(--ff-display); font-size: 0.82rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-sub);
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: var(--sp-8); flex: 1; justify-content: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-sub); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .btn {
+      display: inline-flex; align-items: center;
+      font-family: var(--ff-body); font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: var(--sp-3) var(--sp-6); min-height: 44px;
+      cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--bg);
+      border: 1px solid var(--gold); font-weight: 600;
+    }
+    .btn-primary:hover { background: oklch(65% 0.09 57); border-color: oklch(65% 0.09 57); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border-hi);
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .theme-toggle {
+      background: none; border: 1px solid var(--border-hi); color: var(--text-sub);
+      width: 34px; height: 34px; border-radius: 50%; font-size: 0.95rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s; flex-shrink: 0; line-height: 1;
+    }
+    .theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+    .nav-hamburger {
+      display: none; background: none; border: 1px solid var(--border-hi);
+      color: var(--text-sub); width: 34px; height: 34px; border-radius: 50%;
+      cursor: pointer; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-hamburger:hover { border-color: var(--gold); color: var(--gold); }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: var(--bg); flex-direction: column;
+      align-items: center; justify-content: center; gap: var(--sp-8);
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: var(--ff-display); font-size: 1.1rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-sub);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu-close {
+      position: absolute; top: var(--sp-6); right: var(--sp-6);
+      background: none; border: none; color: var(--text-muted);
+      font-size: 1.2rem; cursor: pointer; padding: var(--sp-2);
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+    }
+
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      font-size: 0.67rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-dim); font-family: var(--ff-body);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: clamp(120px, 14vw, 160px);
+      padding-bottom: clamp(var(--sp-16), 8vw, var(--sp-32));
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 50% 60% at 80% 50%, oklch(35% 0.10 295 / 0.25) 0%, transparent 65%);
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center;
+    }
+    .hero-eyebrow { margin-bottom: var(--sp-4); }
+    .hero h1 {
+      font-family: var(--ff-display); font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 400; line-height: 1.1; letter-spacing: 0.02em;
+      margin-bottom: var(--sp-6);
+    }
+    .hero-sub {
+      font-size: clamp(0.88rem, 1.5vw, 1rem); color: var(--text-sub);
+      line-height: 1.8; max-width: 48ch; margin-bottom: var(--sp-8);
+    }
+    .hero-ctas { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
+    .hero-image-wrap {
+      position: relative;
+    }
+    .hero-image-wrap img {
+      width: 100%; border-radius: 2px;
+      filter: brightness(0.85) contrast(1.05);
+    }
+    .hero-price-tag {
+      position: absolute; bottom: var(--sp-6); left: var(--sp-6);
+      background: oklch(11% 0.022 295 / 0.88);
+      border: 1px solid var(--border-hi);
+      padding: var(--sp-3) var(--sp-5);
+      backdrop-filter: blur(8px);
+    }
+    .hero-price-label {
+      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 2px;
+    }
+    .hero-price-value {
+      font-family: var(--ff-display); font-size: 1.4rem; color: var(--gold);
+    }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-image-wrap { display: none; }
+    }
+
+    /* ── LEAD BAR ── */
+    .lead-bar {
+      background: var(--surface); border-block: 1px solid var(--border);
+      padding-block: var(--sp-3);
+    }
+    .lead-bar-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: var(--sp-6); flex-wrap: wrap;
+      font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-muted);
+    }
+    .lead-bar-inner a { color: var(--gold-dim); transition: color 0.2s; }
+    .lead-bar-inner a:hover { color: var(--gold); }
+
+    /* ── SECTION ── */
+    .section { padding-block: clamp(var(--sp-16), 8vw, var(--sp-24)); }
+    .section-head {
+      margin-bottom: clamp(var(--sp-12), 5vw, var(--sp-16));
+    }
+    .section-head .eyebrow { display: block; margin-bottom: var(--sp-3); }
+    .section-head h2 {
+      font-family: var(--ff-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 400; letter-spacing: 0.03em; margin-bottom: var(--sp-4);
+    }
+    .section-head p { color: var(--text-sub); max-width: 52ch; }
+
+    /* ── WHAT YOU GET ── */
+    .what-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--sp-6);
+    }
+    .what-item {
+      padding: var(--sp-8) var(--sp-6);
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .what-num {
+      font-family: var(--ff-display); font-size: 0.72rem;
+      letter-spacing: 0.18em; color: var(--gold-dim);
+      margin-bottom: var(--sp-4);
+    }
+    .what-item h3 {
+      font-family: var(--ff-display); font-size: 1rem; font-weight: 400;
+      letter-spacing: 0.06em; margin-bottom: var(--sp-3);
+    }
+    .what-item p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.8; }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: grid; grid-template-columns: 48px 1fr; gap: var(--sp-6);
+      padding-block: var(--sp-6);
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: var(--ff-display); font-size: 1.4rem; font-weight: 400;
+      color: var(--gold-dim); line-height: 1; padding-top: 4px;
+    }
+    .step-body h3 {
+      font-family: var(--ff-display); font-size: 0.95rem; font-weight: 400;
+      letter-spacing: 0.06em; margin-bottom: var(--sp-2);
+    }
+    .step-body p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.8; }
+
+    /* ── PRICING ── */
+    .pricing-wrap {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: clamp(var(--sp-8), 4vw, var(--sp-12));
+      max-width: 680px;
+    }
+    .pricing-wrap .eyebrow { display: block; margin-bottom: var(--sp-6); }
+    .pricing-row {
+      display: grid; grid-template-columns: 1fr auto auto;
+      align-items: center; gap: var(--sp-4);
+      padding-block: var(--sp-5);
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-row:last-of-type { border-bottom: none; margin-bottom: var(--sp-8); }
+    .pricing-name { font-size: 0.85rem; color: var(--text); letter-spacing: 0.04em; }
+    .pricing-dur { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; white-space: nowrap; }
+    .pricing-price {
+      font-family: var(--ff-display); font-size: 1.2rem; color: var(--gold); white-space: nowrap;
+    }
+    .pricing-cta-wrap { display: flex; gap: var(--sp-4); flex-wrap: wrap; align-items: center; }
+    .pricing-note { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; }
+
+    /* ── TESTIMONIALS ── */
+    .testi-static { display: flex; flex-direction: column; gap: var(--sp-6); max-width: 680px; }
+    .testi-card {
+      padding: var(--sp-8) var(--sp-8);
+      background: var(--surface); border: 1px solid var(--border);
+      position: relative;
+    }
+    .testi-card::before {
+      content: '\201C';
+      position: absolute; top: var(--sp-4); left: var(--sp-6);
+      font-family: var(--ff-display); font-size: 3rem;
+      color: var(--gold-dim); line-height: 1; opacity: 0.5;
+    }
+    .testi-card p {
+      font-size: 1rem; color: var(--text-sub);
+      line-height: 1.8; font-style: italic;
+      padding-top: var(--sp-6);
+    }
+    .testi-card cite {
+      display: block; margin-top: var(--sp-4);
+      font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold-dim); font-style: normal;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; max-width: 680px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question {
+      width: 100%; background: none; border: none; text-align: left;
+      padding-block: var(--sp-6); cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--sp-4); color: var(--text);
+    }
+    .faq-question span:first-child {
+      font-family: var(--ff-body); font-size: 0.9rem; letter-spacing: 0.04em; line-height: 1.5;
+    }
+    .faq-icon {
+      font-size: 1.1rem; color: var(--gold-dim); flex-shrink: 0;
+      transition: transform 0.25s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      font-size: 0.85rem; color: var(--text-sub); line-height: 1.9;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.25s;
+    }
+    .faq-item.open .faq-answer { max-height: 400px; padding-bottom: var(--sp-6); }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      padding-block: clamp(var(--sp-16), 9vw, var(--sp-24));
+      text-align: center; border-top: 1px solid var(--border);
+    }
+    .cta-final .eyebrow { display: block; margin-bottom: var(--sp-4); }
+    .cta-final h2 {
+      font-family: var(--ff-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 400; letter-spacing: 0.03em;
+      margin-bottom: var(--sp-6); max-width: 20ch; margin-inline: auto;
+    }
+    .cta-final p {
+      color: var(--text-sub); font-size: 0.9rem; max-width: 44ch;
+      margin-inline: auto; margin-bottom: var(--sp-8);
+    }
+    .cta-phone { font-size: 0.77rem; color: var(--text-muted); letter-spacing: 0.06em; margin-top: var(--sp-5); }
+    .cta-phone a { color: var(--gold-dim); transition: color 0.2s; }
+    .cta-phone a:hover { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding-block: var(--sp-8);
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--sp-6); flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-family: var(--ff-display); font-size: 0.8rem;
+      letter-spacing: 0.12em; color: var(--text-sub);
+    }
+    .footer-right { font-size: 0.67rem; color: var(--text-muted); letter-spacing: 0.08em; }
+    .footer-hours {
+      font-size: 0.67rem; color: var(--text-muted); letter-spacing: 0.06em;
+      text-align: center; flex-basis: 100%; padding-top: var(--sp-2);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── LIGHT THEME ── */
+    [data-theme="light"] {
+      --bg:          oklch(96% 0.022 295);
+      --surface:     oklch(92% 0.04 295);
+      --surface-hi:  oklch(87% 0.058 295);
+      --gold:        oklch(38% 0.13 295);
+      --gold-dim:    oklch(52% 0.11 295);
+      --text:        oklch(14% 0.04 295);
+      --text-sub:    oklch(32% 0.09 295);
+      --text-muted:  oklch(38% 0.09 295);
+      --border:      oklch(80% 0.06 295);
+      --border-hi:   oklch(68% 0.09 295);
+    }
+    [data-theme="light"] .nav.scrolled { background: oklch(95% 0.025 295 / 0.94); }
+    [data-theme="light"] .btn-primary { color: oklch(98% 0 0); }
+
+    /* ── SCROLL REVEAL ── */
+    .r { opacity: 0; transform: translateY(18px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .r.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.32s; }
+    @media (prefers-reduced-motion: reduce) { .r { opacity: 1; transform: none; transition: none; } }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .nav-logo-img { width: 28px; height: 28px; }
+      .pricing-row { grid-template-columns: 1fr auto; }
+      .pricing-dur { display: none; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Soul Blueprint Reading",
+    "description": "A deep intuitive session that maps your soul's patterns, past-life influences, and core energetic architecture. Dalena blends intuitive tarot, soul-level insight, and energetic awareness to help you uncover the patterns shaping your life and step into your highest path.",
+    "url": "https://lavendermoontarot.com/soul-blueprint-reading/",
+    "serviceType": "Soul Blueprint Reading",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "Lavender Moon",
+      "url": "https://lavendermoontarot.com/",
+      "telephone": "+17145197650"
+    },
+    "areaServed": { "@type": "Country", "name": "United States" },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceType": "Online",
+      "availableLanguage": "English"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Mini Soul Blueprint Reading",
+        "price": "111",
+        "priceCurrency": "USD",
+        "url": "https://cal-zentara.github.io/lavender-moon-intake/"
+      },
+      {
+        "@type": "Offer",
+        "name": "Full Soul Blueprint Reading",
+        "price": "222",
+        "priceCurrency": "USD",
+        "url": "https://cal-zentara.github.io/lavender-moon-intake/"
+      }
+    ],
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "Wow the soul blueprint reading was about 85% accurate. I will let you know about the 15% once the timeline comes for it."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "This reading was exactly what I needed. I am feeling hopeful, and your guidance felt so comforting and accurate."
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "5"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">
+          <img src="../assets/7384E367-94A1-4CEC-8BF3-B7EF95E02DEF.png" alt="Lavender Moon logo" class="nav-logo-img">
+          <span class="nav-brand-text">Lavender Moon</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#shop">Shop</a></li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);flex-shrink:0;">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+            <span id="theme-icon">☽</span>
+          </button>
+          <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+              <line x1="0" y1="1" x2="16" y2="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="0" y1="6" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="0" y1="11" x2="16" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book a Reading &nbsp;→</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/#services">Services</a>
+    <a href="/#about">About</a>
+    <a href="/#testimonials">Testimonials</a>
+    <a href="/#shop">Shop</a>
+    <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book a Reading &nbsp;→</a>
+  </div>
+
+  <main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <span class="eyebrow hero-eyebrow r">Dalena's Signature Session &nbsp;·&nbsp; Soul-Level Insight</span>
+          <h1 class="r d1">A Map of Your<br>Soul's Deepest<br>Patterns</h1>
+          <p class="hero-sub r d2">
+            The Soul Blueprint Reading goes further than a tarot session. It maps the patterns your soul
+            carries — past-life influences, energetic blocks, and the core architecture shaping everything
+            happening in your life right now.
+          </p>
+          <div class="hero-ctas r d3">
+            <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book Your Reading &nbsp;→</a>
+            <a href="#what-you-get" class="btn btn-outline">What's Included</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap r d1">
+          <img src="../assets/A51B6781-C741-46BB-9F62-6D19D79E2E11.png" alt="Soul Blueprint Reading — tarot cards and crystals" loading="lazy">
+          <div class="hero-price-tag">
+            <div class="hero-price-label">Starting at</div>
+            <div class="hero-price-value">$111</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD BAR -->
+  <div class="lead-bar">
+    <div class="wrap">
+      <div class="lead-bar-inner">
+        <p>Text for a free consultation — spellwork, life direction &amp; intuitive guidance</p>
+        <a href="tel:+17145197650">(714) 519-7650</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <section class="section" id="what-you-get">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">What's Included</span>
+        <h2>What the Reading Covers</h2>
+        <p>This isn't a general reading. Each session is a structured, multi-dimensional look at who you are at soul level — and what's been shaping your experience across this lifetime and beyond.</p>
+      </div>
+      <div class="what-grid">
+        <div class="what-item r">
+          <div class="what-num">01</div>
+          <h3>Soul Pattern Mapping</h3>
+          <p>Dalena reads the recurring themes and patterns your soul has carried — the tendencies, fears, gifts, and lessons that keep showing up across different areas of your life, often without a clear reason why.</p>
+        </div>
+        <div class="what-item r d1">
+          <div class="what-num">02</div>
+          <h3>Past-Life Influences</h3>
+          <p>Some of what you're experiencing now has roots further back than this lifetime. Dalena identifies past-life energy that's still active and shaping your current relationships, blocks, or patterns.</p>
+        </div>
+        <div class="what-item r d2">
+          <div class="what-num">03</div>
+          <h3>Energetic Block Identification</h3>
+          <p>Where are you stuck — and why? The reading surfaces specific energetic blocks that are creating resistance in your life, so you understand what's actually in the way, not just the surface-level symptoms.</p>
+        </div>
+        <div class="what-item r d3">
+          <div class="what-num">04</div>
+          <h3>Your Highest Path Forward</h3>
+          <p>The session doesn't end at what's been. Dalena channels what's aligned for you going forward — the direction, decisions, and energy that will move you toward your highest potential in this chapter of life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works" style="background: var(--surface); border-block: 1px solid var(--border);">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">The Process</span>
+        <h2>How It Works</h2>
+        <p>A structured session — done entirely online, at a time that works for you.</p>
+      </div>
+      <div class="steps">
+        <div class="step r">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Fill Out the Intake Form</h3>
+            <p>A short form collects your name, date of birth, time of birth, and birth city. This information is essential — Dalena uses it to tune into your specific soul's energy before the session begins. Takes two minutes.</p>
+          </div>
+        </div>
+        <div class="step r d1">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Choose Your Appointment</h3>
+            <p>After submitting the form, you're taken directly to Dalena's Google Calendar to pick a time. Because Soul Blueprint sessions require significant preparation, book at least 24 hours in advance.</p>
+          </div>
+        </div>
+        <div class="step r d2">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Dalena Prepares</h3>
+            <p>Before your session, Dalena tunes into your energy using your birth details. She arrives already holding information — the session is focused and deep from the first minute, not general or exploratory.</p>
+          </div>
+        </div>
+        <div class="step r d3">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Your Reading via Zoom or Phone</h3>
+            <p>Dalena walks you through what she's received — the patterns, the past-life influences, the blocks, and what's aligned for you going forward. You can ask questions throughout and guide the session toward what resonates most.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">Sessions & Pricing</span>
+        <h2>Choose Your Session</h2>
+        <p>Both options are live, one-on-one, and delivered via Zoom or phone. The difference is depth and time.</p>
+      </div>
+      <div class="pricing-wrap r">
+        <span class="eyebrow">Live Sessions via Zoom or Phone</span>
+        <div class="pricing-row">
+          <span class="pricing-name">Mini Soul Blueprint Reading</span>
+          <span class="pricing-dur">45 minutes</span>
+          <span class="pricing-price">$111</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-name">Full Soul Blueprint Reading</span>
+          <span class="pricing-dur">1 hour 15 min</span>
+          <span class="pricing-price">$222</span>
+        </div>
+        <div class="pricing-cta-wrap">
+          <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book Your Reading &nbsp;→</a>
+          <span class="pricing-note">Secured via Google Calendar &nbsp;·&nbsp; Zoom or phone</span>
+        </div>
+      </div>
+      <p style="margin-top: var(--sp-6); font-size: 0.78rem; color: var(--text-muted);">
+        New to working with Dalena? Start with a <a href="/tarot-reading/" style="color: var(--gold-dim); transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold-dim)'">Tarot Reading</a> — a focused 30-min or 1-hour session before going deeper.
+      </p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" style="background: var(--surface); border-block: 1px solid var(--border);">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">From Clients</span>
+        <h2>What People Say</h2>
+      </div>
+      <div class="testi-static">
+        <div class="testi-card r">
+          <p>Wow the soul blueprint reading was about 85% accurate. I will let you know about the 15% once the timeline comes for it.</p>
+          <cite>Soul Blueprint Client</cite>
+        </div>
+        <div class="testi-card r d1">
+          <p>This reading was exactly what I needed. I am feeling hopeful, and your guidance felt so comforting and accurate.</p>
+          <cite>Verified Client</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently Asked</h2>
+      </div>
+      <div class="faq-list r">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is a Soul Blueprint Reading?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            A Soul Blueprint Reading is Dalena's signature session. It maps your soul's core architecture — the patterns, contracts, gifts, and past-life influences that are actively shaping your current life. Using intuitive tarot, soul-level insight, and energetic awareness, Dalena reads who you are beneath the surface and what your soul is working through in this lifetime. It's less about what's happening right now and more about understanding why — and what your highest path forward looks like.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How is it different from a regular tarot reading?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            A tarot reading is present-focused — it addresses the questions you're sitting with today and the energy around your current situation. A Soul Blueprint Reading goes deeper and wider. It examines the soul-level patterns and past-life influences that are driving what's happening in your life right now. Think of a tarot reading as a snapshot; the Soul Blueprint is the whole film. If you've been working through the same patterns for years and want to understand their origin, this is the session for that.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What information do you need from me?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Your date of birth, time of birth, and birth city. This information helps Dalena tune into your specific soul's energy before the session begins. Unlike a standard tarot reading, the Soul Blueprint requires preparation — Dalena works with this data ahead of time so the session itself is focused and deep from the first minute. You'll provide this through the intake form when you book.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What will I learn about myself?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Every reading is different, but most clients come away with clarity on the patterns they keep repeating and why, past-life influences that are still active in this lifetime, specific energetic blocks creating resistance in relationships, career, or personal growth, and a clearer sense of what their soul is moving toward. Many clients describe it as the first time something they've always felt but couldn't name finally made sense.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Mini vs. Full — which should I choose?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            The Mini (45 minutes) covers the core of your soul's blueprint — the dominant patterns, key past-life energy, and your primary path forward. It's focused and substantial. The Full (1 hour 15 minutes) goes further — more dimensions of your blueprint, deeper exploration of past-life influences, and more time to unpack what comes through and ask questions. If this is your first Soul Blueprint Reading, the Mini is a strong entry point. If you've done one before or are navigating a major life transition, the Full gives you the space to go as deep as the session needs to.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do I need to believe in past lives for this to work?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            No. You don't need to hold any specific belief about past lives or the soul. Many clients who come in skeptical find that what comes through resonates deeply — often because it names patterns or experiences they recognize but couldn't explain. The reading meets you where you are. The only thing that helps is approaching the session with an open mind and a genuine willingness to receive what comes through.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How should I prepare?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Have your date of birth, time of birth, and birth city ready for the intake form. Before the session, take a few minutes to think about the patterns in your life you most want to understand — recurring situations, things you feel stuck on, or areas where you sense something is operating beneath the surface. You don't need to over-prepare. Come grounded and open. If specific questions come to mind, write them down so you don't lose them once the session begins.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What's included in the reading?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Every Soul Blueprint Reading includes: soul pattern mapping specific to you, identification of active past-life influences, energetic block identification, and channeled guidance on your highest path forward. Dalena blends intuitive tarot, soul-level insight, and energetic awareness together in a single session — drawing from both eastern and western practices rooted in her ancestral lineage. The session is live, one-on-one, and entirely personalized. Nothing is scripted or templated.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-final">
+    <div class="wrap">
+      <span class="eyebrow r">Ready to Go Deeper?</span>
+      <h2 class="r d1">Book Your Soul Blueprint Reading</h2>
+      <p class="r d2">45 minutes or 1 hour 15 min. Zoom or phone. Available worldwide.</p>
+      <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary r d3">Book Your Reading &nbsp;→</a>
+      <p class="cta-phone r">Or text for a free consultation: <a href="tel:+17145197650">(714) 519-7650</a></p>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <span class="footer-brand">Lavender Moon</span>
+        <span class="footer-right">© 2026 &nbsp;·&nbsp; <a href="/" style="color:inherit;">lavendermoontarot.com</a></span>
+        <span class="footer-hours">Hours: Mon – Fri 4pm – 12am &nbsp;·&nbsp; Sat 12pm – 8pm &nbsp;·&nbsp; Closed Sundays</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    // Scroll reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+    // Theme toggle
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    const saved = localStorage.getItem('lm-theme');
+    if (saved) { document.documentElement.setAttribute('data-theme', saved); icon.textContent = saved === 'light' ? '☀' : '☽'; }
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('lm-theme', next);
+      icon.textContent = next === 'light' ? '☀' : '☽';
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); hamburger.setAttribute('aria-expanded', 'true'); });
+    closeBtn.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded', 'false'); });
+        if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+  </script>
+
+</body>
+</html>
