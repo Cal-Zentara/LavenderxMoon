@@ -139,48 +139,96 @@
     .service-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
+
+    .service-group-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 12px 0 6px;
+    }
+    .service-group-label:first-child { margin-top: 0; }
 
     .service-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px 14px;
+      justify-content: space-between;
+      padding: 13px 16px;
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       transition: border-color 0.15s, background 0.15s;
-    }
-
-    .service-item:hover {
-      border-color: var(--purple);
-      background: oklch(16% 0.04 295);
+      user-select: none;
     }
 
     .service-item input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      min-width: 16px;
-      accent-color: var(--purple);
-      cursor: pointer;
-      border: none;
-      background: none;
-      padding: 0;
+      display: none;
     }
 
-    .service-item input[type="checkbox"]:focus {
-      border-color: transparent;
+    .service-item:hover {
+      border-color: oklch(40% 0.12 295);
+      background: oklch(14% 0.035 295);
     }
 
     .service-item.checked {
-      border-color: var(--purple);
-      background: oklch(16% 0.04 295);
+      border-color: var(--gold-dim);
+      background: oklch(14% 0.035 295);
     }
 
-    .service-item span {
-      font-size: 0.88rem;
+    .svc-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .svc-dot {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.15s, background 0.15s;
+      font-size: 0.65rem;
+      color: transparent;
+    }
+
+    .service-item.checked .svc-dot {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: oklch(11% 0.022 295);
+    }
+
+    .svc-name {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
       color: var(--text);
+      text-transform: none;
+      letter-spacing: 0.01em;
+    }
+
+    .svc-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .svc-duration {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .svc-price {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      color: var(--gold);
+      font-weight: 500;
     }
 
     select {
@@ -391,12 +439,38 @@
       <div class="form-group">
         <label>Which Service Are You Booking? <span class="req">*</span></label>
         <div class="service-list" id="serviceList">
-          <label class="service-item"><input type="checkbox" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 30 min ($44)"><span>Intuitive Tarot &amp; Spiritual Guidance — 30 min ($44)</span></label>
-          <label class="service-item"><input type="checkbox" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 1 hr ($77)"><span>Intuitive Tarot &amp; Spiritual Guidance — 1 hr ($77)</span></label>
-          <label class="service-item"><input type="checkbox" name="service" value="Mini Soul Blueprint Reading — 45 min ($111)"><span>Mini Soul Blueprint Reading — 45 min ($111)</span></label>
-          <label class="service-item"><input type="checkbox" name="service" value="Full Soul Blueprint Reading — 1 hr 15 min ($222)"><span>Full Soul Blueprint Reading — 1 hr 15 min ($222)</span></label>
-          <label class="service-item"><input type="checkbox" name="service" value="Monthly Membership — 1 session/mo ($150/mo)"><span>Monthly Membership — 1 session/mo ($150/mo)</span></label>
-          <label class="service-item"><input type="checkbox" name="service" value="Weekly Membership — 4 sessions/mo ($500/mo)"><span>Weekly Membership — 4 sessions/mo ($500/mo)</span></label>
+          <p class="service-group-label">Sessions</p>
+          <label class="service-item">
+            <input type="checkbox" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 30 min ($44)">
+            <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Intuitive Tarot &amp; Spiritual Guidance</span></span>
+            <span class="svc-right"><span class="svc-duration">30 min</span><span class="svc-price">$44</span></span>
+          </label>
+          <label class="service-item">
+            <input type="checkbox" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 1 hr ($77)">
+            <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Intuitive Tarot &amp; Spiritual Guidance</span></span>
+            <span class="svc-right"><span class="svc-duration">1 hr</span><span class="svc-price">$77</span></span>
+          </label>
+          <label class="service-item">
+            <input type="checkbox" name="service" value="Mini Soul Blueprint Reading — 45 min ($111)">
+            <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Mini Soul Blueprint Reading</span></span>
+            <span class="svc-right"><span class="svc-duration">45 min</span><span class="svc-price">$111</span></span>
+          </label>
+          <label class="service-item">
+            <input type="checkbox" name="service" value="Full Soul Blueprint Reading — 1 hr 15 min ($222)">
+            <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Full Soul Blueprint Reading</span></span>
+            <span class="svc-right"><span class="svc-duration">1 hr 15 min</span><span class="svc-price">$222</span></span>
+          </label>
+          <p class="service-group-label">Memberships</p>
+          <label class="service-item">
+            <input type="checkbox" name="service" value="Monthly Membership — 1 session/mo ($150/mo)">
+            <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Monthly Membership — 1 session/mo</span></span>
+            <span class="svc-right"><span class="svc-price">$150/mo</span></span>
+          </label>
+          <label class="service-item">
+            <input type="checkbox" name="service" value="Weekly Membership — 4 sessions/mo ($500/mo)">
+            <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Weekly Membership — 4 sessions/mo</span></span>
+            <span class="svc-right"><span class="svc-price">$500/mo</span></span>
+          </label>
         </div>
       </div>
 
