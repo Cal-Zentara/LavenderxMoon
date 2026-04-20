@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Session — Lavender Moon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --bg:         oklch(11% 0.022 295);
+      --surface:    oklch(15% 0.045 295);
+      --surface-hi: oklch(20% 0.065 295);
+      --gold:       oklch(73% 0.08 57);
+      --gold-dim:   oklch(56% 0.06 57);
+      --text:       oklch(93% 0.01 78);
+      --text-sub:   oklch(72% 0.022 295);
+      --text-muted: oklch(50% 0.025 295);
+      --border:     oklch(25% 0.045 295);
+      --purple:     oklch(52% 0.18 295);
+      --radius:     10px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Josefin Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px 80px;
+    }
+
+    .logo-wrap {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .logo-wrap img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      border: 1px solid var(--border);
+    }
+
+    .brand {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px 44px;
+      width: 100%;
+      max-width: 580px;
+    }
+
+    .card-header {
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+    }
+
+    label .req {
+      color: var(--gold-dim);
+      margin-left: 3px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 13px 15px;
+      transition: border-color 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--purple);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    select option {
+      background: oklch(15% 0.045 295);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--gold);
+      color: oklch(11% 0.022 295);
+      border: none;
+      border-radius: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      padding: 16px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover { opacity: 0.88; }
+    .submit-btn:active { transform: scale(0.99); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .privacy {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 18px;
+      line-height: 1.5;
+    }
+
+    /* ── CONFIRMATION STATE ─── */
+    .confirm-screen {
+      display: none;
+      text-align: center;
+      padding: 16px 0;
+    }
+
+    .confirm-screen.visible { display: block; }
+    .form-body.hidden { display: none; }
+
+    .confirm-icon {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .confirm-screen h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .confirm-screen p {
+      color: var(--text-sub);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .book-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: oklch(11% 0.022 295);
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      padding: 15px 36px;
+      border-radius: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .book-btn:hover { opacity: 0.88; }
+
+    .member-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0 20px;
+      color: var(--text-sub);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .member-divider::before,
+    .member-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: oklch(30% 0.04 295);
+    }
+
+    .member-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .member-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      padding: 14px 20px;
+      border: 1px solid oklch(30% 0.04 295);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .member-btn:hover {
+      border-color: var(--gold);
+      background: oklch(16% 0.03 295);
+    }
+    .member-btn--premium {
+      border-color: oklch(40% 0.06 295);
+    }
+    .member-btn--premium:hover {
+      border-color: var(--gold);
+    }
+
+    .member-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+    .member-price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .member-note {
+      font-size: 0.76rem;
+      color: var(--text-sub);
+    }
+
+    @media (max-width: 520px) {
+      .card { padding: 32px 22px; }
+      .row-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-wrap">
+    <img src="../assets/7384E367-9C2A-4E3B-BB3C-CC2E695B1EC0.png" alt="Lavender Moon">
+    <div class="brand">Lavender Moon</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="eyebrow">Step 1 of 2</div>
+      <h1>Before We Book</h1>
+      <p class="subtitle">Some readings require a few details to tune in accurately. Fill this out first — then you'll be taken straight to the calendar to pick your time.</p>
+    </div>
+
+    <!-- FORM -->
+    <form class="form-body" id="intakeForm" action="https://formspree.io/f/mgorkqvz" method="POST">
+      <input type="hidden" name="client_name" value="Dalena">
+      <input type="hidden" name="_subject" value="New Booking Intake — Lavender Moon">
+      <input type="hidden" name="_cc" value="Dalenanch@gmail.com">
+
+      <div class="form-group">
+        <label>Your Name <span class="req">*</span></label>
+        <input type="text" name="name" placeholder="Full name" required>
+      </div>
+
+      <div class="row-2">
+        <div class="form-group">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="you@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="(000) 000-0000">
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="form-group">
+        <label>Which Service Are You Booking? <span class="req">*</span></label>
+        <select name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option>Intuitive Tarot & Spiritual Guidance — 30 min ($44)</option>
+          <option>Intuitive Tarot & Spiritual Guidance — 1 hr ($77)</option>
+          <option>Mini Soul Blueprint Reading — 45 min ($111)</option>
+          <option>Full Soul Blueprint Reading — 1 hr 15 min ($222)</option>
+        </select>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="eyebrow" style="margin-bottom: 16px;">Birth Details</p>
+
+      <div class="row-2">
+        <div class="form-group">
+          <label>Date of Birth <span class="req">*</span></label>
+          <input type="date" name="dob" required>
+        </div>
+        <div class="form-group">
+          <label>Time of Birth <span class="req">*</span></label>
+          <input type="time" name="tob" required>
+          <p class="note">Approximate is okay</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>City & Country of Birth <span class="req">*</span></label>
+        <input type="text" name="birth_location" placeholder="e.g. Los Angeles, CA, USA" required>
+      </div>
+
+      <div class="form-group">
+        <label>Anything You'd Like Dalena to Know?</label>
+        <textarea name="notes" placeholder="A situation you're navigating, a question on your mind, or anything else..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Continue to Booking &nbsp;→</button>
+      <p class="privacy">Your information is kept private and shared only with Dalena.</p>
+    </form>
+
+    <!-- CONFIRMATION -->
+    <div class="confirm-screen" id="confirmScreen">
+      <div class="confirm-icon">✦</div>
+      <h2>Details Received</h2>
+      <p>Thank you. Dalena has your information and is ready for your session.<br>Click below to choose your date and time.</p>
+      <a href="https://calendar.app.google/1MGnax6DEzcqBokH6" target="_blank" rel="noopener" class="book-btn">Choose Your Appointment →</a>
+
+      <div class="member-divider">
+        <span>Interested in a membership?</span>
+      </div>
+      <div class="member-options">
+        <a href="https://square.link/u/SrOGfL4X" target="_blank" rel="noopener" class="member-btn">
+          <span class="member-label">Monthly Membership</span>
+          <span class="member-price">$150 / mo</span>
+          <span class="member-note">4 tarot sessions + ongoing guidance</span>
+        </a>
+        <a href="https://square.link/u/gM6WUXcC" target="_blank" rel="noopener" class="member-btn member-btn--premium">
+          <span class="member-label">Weekly Membership</span>
+          <span class="member-price">$500 / mo</span>
+          <span class="member-note">Weekly sessions + priority access</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('intakeForm');
+    const confirmScreen = document.getElementById('confirmScreen');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.classList.add('hidden');
+          confirmScreen.classList.add('visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Continue to Booking →';
+          alert('Something went wrong. Please try again or text (714) 519-7650.');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Continue to Booking →';
+        alert('Something went wrong. Please try again or text (714) 519-7650.');
+      }
+    });
+  </script>
+
+</body>
+</html>
