@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cal-zentara.github.io/LavenderxMoon/sitemap.xml
+Sitemap: https://lavendermoontarot.com/sitemap.xml
