@@ -474,25 +474,24 @@
         </div>
       </div>
 
-      <div class="divider"></div>
-
-      <p class="eyebrow" style="margin-bottom: 16px;">Birth Details</p>
-
-      <div class="row-2">
-        <div class="form-group">
-          <label>Date of Birth <span class="req">*</span></label>
-          <input type="date" name="dob" required>
+      <div id="birthSection" style="display:none;">
+        <div class="divider"></div>
+        <p class="eyebrow" style="margin-bottom: 16px;">Birth Details</p>
+        <div class="row-2">
+          <div class="form-group">
+            <label>Date of Birth <span class="req">*</span></label>
+            <input type="date" name="dob" id="dobInput">
+          </div>
+          <div class="form-group">
+            <label>Time of Birth</label>
+            <input type="time" name="tob">
+            <p class="note">Approximate is okay</p>
+          </div>
         </div>
         <div class="form-group">
-          <label>Time of Birth <span class="req">*</span></label>
-          <input type="time" name="tob" required>
-          <p class="note">Approximate is okay</p>
+          <label>City & Country of Birth <span class="req">*</span></label>
+          <input type="text" name="birth_location" id="birthLocationInput" placeholder="e.g. Los Angeles, CA, USA">
         </div>
-      </div>
-
-      <div class="form-group">
-        <label>City & Country of Birth <span class="req">*</span></label>
-        <input type="text" name="birth_location" placeholder="e.g. Los Angeles, CA, USA" required>
       </div>
 
       <div class="form-group">
@@ -532,18 +531,9 @@
     <div class="confirm-screen" id="confirmMembership">
       <div class="confirm-icon">✦</div>
       <h2>Details Received</h2>
-      <p>Book your first session below, then complete your membership payment.</p>
-      <a href="https://calendar.app.google/1MGnax6DEzcqBokH6" target="_blank" rel="noopener" class="book-btn">Choose Your Appointment →</a>
-      <div class="member-divider">
-        <span>Then complete payment</span>
-      </div>
-      <div class="member-options">
-        <a href="#" target="_blank" rel="noopener" class="member-btn member-btn--premium" id="memberPayBtn">
-          <span class="member-label" id="memberPayLabel">Membership</span>
-          <span class="member-price" id="memberPayPrice"></span>
-          <span class="member-note">Click to complete your subscription</span>
-        </a>
-      </div>
+      <p>Complete your membership payment below.<br>Once confirmed, Dalena will reach out to schedule your first session.</p>
+      <a href="#" target="_blank" rel="noopener" class="book-btn" id="memberPayBtn">Complete Payment →</a>
+      <p style="margin-top: 16px; font-size: 0.8rem; color: var(--text-muted);">After payment, Dalena will contact you within 24 hrs to book your first session.</p>
     </div>
   </div>
 
@@ -552,19 +542,31 @@
     const confirmRegular = document.getElementById('confirmRegular');
     const confirmMembership = document.getElementById('confirmMembership');
     const memberPayBtn = document.getElementById('memberPayBtn');
-    const memberPayLabel = document.getElementById('memberPayLabel');
-    const memberPayPrice = document.getElementById('memberPayPrice');
     const submitBtn = document.getElementById('submitBtn');
+    const birthSection = document.getElementById('birthSection');
+    const dobInput = document.getElementById('dobInput');
+    const birthLocationInput = document.getElementById('birthLocationInput');
+
+    const birthServices = ['soul blueprint', 'astrology'];
+
+    function updateBirthSection() {
+      const checked = [...form.querySelectorAll('[name="service"]:checked')];
+      const needsBirth = checked.some(c => birthServices.some(s => c.value.toLowerCase().includes(s)));
+      birthSection.style.display = needsBirth ? 'block' : 'none';
+      dobInput.required = needsBirth;
+      birthLocationInput.required = needsBirth;
+    }
 
     const memberLinks = {
       'monthly': 'https://square.link/u/SrOGfL4X',
       'weekly': 'https://square.link/u/gM6WUXcC'
     };
 
-    // Highlight checked service items
+    // Highlight checked items + toggle birth section
     document.querySelectorAll('.service-item input').forEach(cb => {
       cb.addEventListener('change', () => {
         cb.closest('.service-item').classList.toggle('checked', cb.checked);
+        updateBirthSection();
       });
     });
 
@@ -606,8 +608,6 @@
           form.classList.add('hidden');
           if (isMembership) {
             memberPayBtn.href = isWeekly ? memberLinks.weekly : memberLinks.monthly;
-            memberPayLabel.textContent = isWeekly ? 'Weekly Membership' : 'Monthly Membership';
-            memberPayPrice.textContent = isWeekly ? '$500 / mo' : '$150 / mo';
             confirmMembership.classList.add('visible');
           } else {
             confirmRegular.classList.add('visible');
