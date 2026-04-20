@@ -556,6 +556,16 @@
       });
     });
 
+    // Pre-select service from URL param (e.g. ?service=monthly)
+    const preselect = new URLSearchParams(window.location.search).get('service');
+    if (preselect) {
+      const match = document.querySelector(`.service-item input[value*="${preselect.charAt(0).toUpperCase() + preselect.slice(1)}"]`);
+      if (match) {
+        match.checked = true;
+        match.closest('.service-item').classList.add('checked');
+      }
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
