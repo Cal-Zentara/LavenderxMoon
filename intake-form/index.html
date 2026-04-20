@@ -532,8 +532,18 @@
     <div class="confirm-screen" id="confirmMembership">
       <div class="confirm-icon">✦</div>
       <h2>Details Received</h2>
-      <p>Complete your membership payment below.<br>Once payment is confirmed, Dalena will reach out to schedule your first session.</p>
-      <a href="#" target="_blank" rel="noopener" class="book-btn" id="memberPayBtn">Complete Payment →</a>
+      <p>Book your first session below, then complete your membership payment.</p>
+      <a href="https://calendar.app.google/1MGnax6DEzcqBokH6" target="_blank" rel="noopener" class="book-btn">Choose Your Appointment →</a>
+      <div class="member-divider">
+        <span>Then complete payment</span>
+      </div>
+      <div class="member-options">
+        <a href="#" target="_blank" rel="noopener" class="member-btn member-btn--premium" id="memberPayBtn">
+          <span class="member-label" id="memberPayLabel">Membership</span>
+          <span class="member-price" id="memberPayPrice"></span>
+          <span class="member-note">Click to complete your subscription</span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -542,6 +552,8 @@
     const confirmRegular = document.getElementById('confirmRegular');
     const confirmMembership = document.getElementById('confirmMembership');
     const memberPayBtn = document.getElementById('memberPayBtn');
+    const memberPayLabel = document.getElementById('memberPayLabel');
+    const memberPayPrice = document.getElementById('memberPayPrice');
     const submitBtn = document.getElementById('submitBtn');
 
     const memberLinks = {
@@ -594,6 +606,8 @@
           form.classList.add('hidden');
           if (isMembership) {
             memberPayBtn.href = isWeekly ? memberLinks.weekly : memberLinks.monthly;
+            memberPayLabel.textContent = isWeekly ? 'Weekly Membership' : 'Monthly Membership';
+            memberPayPrice.textContent = isWeekly ? '$500 / mo' : '$150 / mo';
             confirmMembership.classList.add('visible');
           } else {
             confirmRegular.classList.add('visible');
