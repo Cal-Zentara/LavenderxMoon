@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spellwork & Ritual Guidance Online | Intention Setting | Lavender Moon</title>
+  <meta name="description" content="Work with Dalena on spellwork, ritual guidance, and intention-setting. Grounded in both eastern and western spiritual traditions. Virtual consultations via Zoom or phone. Text for a free consult.">
+  <meta name="keywords" content="spellwork consultation online, spiritual spellwork, ritual guidance, intention setting spiritual, spell casting guidance, online spiritual ritual, wiccan spellwork guidance">
+  <meta property="og:title" content="Spellwork & Ritual Guidance Online | Lavender Moon">
+  <meta property="og:description" content="Work with Dalena on spellwork and ritual guidance — grounded in eastern and western traditions. Virtual consultations via Zoom or phone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lavendermoontarot.com/spellwork/">
+  <link rel="canonical" href="https://lavendermoontarot.com/spellwork/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    ul   { list-style: none; }
+    :root {
+      --bg: oklch(11% 0.022 295); --surface: oklch(15% 0.045 295); --surface-hi: oklch(20% 0.065 295);
+      --gold: oklch(73% 0.08 57); --gold-dim: oklch(56% 0.06 57);
+      --text: oklch(93% 0.01 78); --text-sub: oklch(72% 0.022 295); --text-muted: oklch(65% 0.025 295);
+      --border: oklch(25% 0.045 295); --border-hi: oklch(33% 0.065 295);
+      --ff-display: 'Cinzel', serif; --ff-body: 'Josefin Sans', sans-serif;
+      --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px; --sp-8:32px; --sp-12:48px; --sp-16:64px; --sp-24:96px; --sp-32:128px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--ff-body); font-size: 1rem; line-height: 1.7; font-weight: 300; }
+    .wrap { max-width: 1100px; margin-inline: auto; padding-inline: var(--sp-6); }
+    .skip-link { position: absolute; top: -99px; left: var(--sp-4); background: var(--gold); color: var(--bg); padding: var(--sp-2) var(--sp-4); font-family: var(--ff-body); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; z-index: 999; transition: top 0.2s; }
+    .skip-link:focus { top: var(--sp-4); }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding-block: var(--sp-4); transition: background 0.3s, backdrop-filter 0.3s; }
+    .nav.scrolled { background: oklch(11% 0.022 295 / 0.92); backdrop-filter: blur(12px); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); }
+    .nav-brand { display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0; }
+    .nav-logo-img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+    .nav-brand-text { font-family: var(--ff-display); font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-sub); }
+    .nav-links { display: flex; align-items: center; gap: var(--sp-8); flex: 1; justify-content: center; }
+    .nav-links a { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-sub); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .btn { display: inline-flex; align-items: center; font-family: var(--ff-body); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: var(--sp-3) var(--sp-6); min-height: 44px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+    .btn-primary { background: var(--gold); color: var(--bg); border: 1px solid var(--gold); font-weight: 600; }
+    .btn-primary:hover { background: oklch(65% 0.09 57); border-color: oklch(65% 0.09 57); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border-hi); }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .theme-toggle { background: none; border: 1px solid var(--border-hi); color: var(--text-sub); width: 34px; height: 34px; border-radius: 50%; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; flex-shrink: 0; line-height: 1; }
+    .theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-hamburger { display: none; background: none; border: 1px solid var(--border-hi); color: var(--text-sub); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; align-items: center; justify-content: center; flex-shrink: 0; transition: border-color 0.2s, color 0.2s; }
+    .nav-hamburger:hover { border-color: var(--gold); color: var(--gold); }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: var(--bg); flex-direction: column; align-items: center; justify-content: center; gap: var(--sp-8); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-family: var(--ff-display); font-size: 1.1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-sub); transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu-close { position: absolute; top: var(--sp-6); right: var(--sp-6); background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; padding: var(--sp-2); }
+    @media (max-width: 768px) { .nav-links { display: none; } .nav-hamburger { display: flex; } .mobile-menu { display: flex; } }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .eyebrow { font-size: 0.67rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dim); font-family: var(--ff-body); }
+    .hero { padding-top: clamp(120px, 14vw, 160px); padding-bottom: clamp(var(--sp-16), 8vw, var(--sp-32)); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 50% 60% at 80% 50%, oklch(35% 0.10 295 / 0.25) 0%, transparent 65%); }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center; }
+    .hero-eyebrow { margin-bottom: var(--sp-4); }
+    .hero h1 { font-family: var(--ff-display); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 400; line-height: 1.1; letter-spacing: 0.02em; margin-bottom: var(--sp-6); }
+    .hero-sub { font-size: clamp(0.88rem, 1.5vw, 1rem); color: var(--text-sub); line-height: 1.8; max-width: 48ch; margin-bottom: var(--sp-8); }
+    .hero-ctas { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
+    .hero-image-wrap { position: relative; }
+    .hero-image-wrap img { width: 100%; border-radius: 2px; filter: brightness(0.85) contrast(1.05); }
+    .hero-price-tag { position: absolute; bottom: var(--sp-6); left: var(--sp-6); background: oklch(11% 0.022 295 / 0.88); border: 1px solid var(--border-hi); padding: var(--sp-3) var(--sp-5); backdrop-filter: blur(8px); }
+    .hero-price-label { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px; }
+    .hero-price-value { font-family: var(--ff-display); font-size: 1.4rem; color: var(--gold); }
+    @media (max-width: 768px) { .hero-inner { grid-template-columns: 1fr; } .hero-image-wrap { display: none; } }
+    .lead-bar { background: var(--surface); border-block: 1px solid var(--border); padding-block: var(--sp-3); }
+    .lead-bar-inner { display: flex; align-items: center; justify-content: center; gap: var(--sp-6); flex-wrap: wrap; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-muted); }
+    .lead-bar-inner a { color: var(--gold-dim); transition: color 0.2s; }
+    .lead-bar-inner a:hover { color: var(--gold); }
+    .section { padding-block: clamp(var(--sp-16), 8vw, var(--sp-24)); }
+    .section-head { margin-bottom: clamp(var(--sp-12), 5vw, var(--sp-16)); }
+    .section-head .eyebrow { display: block; margin-bottom: var(--sp-3); }
+    .section-head h2 { font-family: var(--ff-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 400; letter-spacing: 0.03em; margin-bottom: var(--sp-4); }
+    .section-head p { color: var(--text-sub); max-width: 52ch; }
+    .what-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--sp-6); }
+    .what-item { padding: var(--sp-8) var(--sp-6); background: var(--surface); border: 1px solid var(--border); }
+    .what-num { font-family: var(--ff-display); font-size: 0.72rem; letter-spacing: 0.18em; color: var(--gold-dim); margin-bottom: var(--sp-4); }
+    .what-item h3 { font-family: var(--ff-display); font-size: 1rem; font-weight: 400; letter-spacing: 0.06em; margin-bottom: var(--sp-3); }
+    .what-item p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.8; }
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step { display: grid; grid-template-columns: 48px 1fr; gap: var(--sp-6); padding-block: var(--sp-6); border-bottom: 1px solid var(--border); }
+    .step:last-child { border-bottom: none; }
+    .step-num { font-family: var(--ff-display); font-size: 1.4rem; font-weight: 400; color: var(--gold-dim); line-height: 1; padding-top: 4px; }
+    .step-body h3 { font-family: var(--ff-display); font-size: 0.95rem; font-weight: 400; letter-spacing: 0.06em; margin-bottom: var(--sp-2); }
+    .step-body p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.8; }
+    .pricing-wrap { background: var(--surface); border: 1px solid var(--border); padding: clamp(var(--sp-8), 4vw, var(--sp-12)); max-width: 680px; }
+    .pricing-wrap .eyebrow { display: block; margin-bottom: var(--sp-6); }
+    .pricing-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: var(--sp-4); padding-block: var(--sp-5); border-bottom: 1px solid var(--border); }
+    .pricing-row:last-of-type { border-bottom: none; margin-bottom: var(--sp-8); }
+    .pricing-name { font-size: 0.85rem; color: var(--text); letter-spacing: 0.04em; }
+    .pricing-dur { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; white-space: nowrap; }
+    .pricing-price { font-family: var(--ff-display); font-size: 1.2rem; color: var(--gold); white-space: nowrap; }
+    .pricing-cta-wrap { display: flex; gap: var(--sp-4); flex-wrap: wrap; align-items: center; }
+    .pricing-note { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; }
+    .testi-static { display: flex; flex-direction: column; gap: var(--sp-6); max-width: 680px; }
+    .testi-card { padding: var(--sp-8) var(--sp-8); background: var(--surface); border: 1px solid var(--border); position: relative; }
+    .testi-card::before { content: '\201C'; position: absolute; top: var(--sp-4); left: var(--sp-6); font-family: var(--ff-display); font-size: 3rem; color: var(--gold-dim); line-height: 1; opacity: 0.5; }
+    .testi-card p { font-size: 1rem; color: var(--text-sub); line-height: 1.8; font-style: italic; padding-top: var(--sp-6); }
+    .testi-card cite { display: block; margin-top: var(--sp-4); font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dim); font-style: normal; }
+    .faq-list { display: flex; flex-direction: column; max-width: 680px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question { width: 100%; background: none; border: none; text-align: left; padding-block: var(--sp-6); cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); color: var(--text); }
+    .faq-question span:first-child { font-family: var(--ff-body); font-size: 0.9rem; letter-spacing: 0.04em; line-height: 1.5; }
+    .faq-icon { font-size: 1.1rem; color: var(--gold-dim); flex-shrink: 0; transition: transform 0.25s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { font-size: 0.85rem; color: var(--text-sub); line-height: 1.9; max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.25s; }
+    .faq-item.open .faq-answer { max-height: 400px; padding-bottom: var(--sp-6); }
+    .cta-final { padding-block: clamp(var(--sp-16), 9vw, var(--sp-24)); text-align: center; border-top: 1px solid var(--border); }
+    .cta-final .eyebrow { display: block; margin-bottom: var(--sp-4); }
+    .cta-final h2 { font-family: var(--ff-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 400; letter-spacing: 0.03em; margin-bottom: var(--sp-6); max-width: 20ch; margin-inline: auto; }
+    .cta-final p { color: var(--text-sub); font-size: 0.9rem; max-width: 44ch; margin-inline: auto; margin-bottom: var(--sp-8); }
+    .cta-phone { font-size: 0.77rem; color: var(--text-muted); letter-spacing: 0.06em; margin-top: var(--sp-5); }
+    .cta-phone a { color: var(--gold-dim); transition: color 0.2s; }
+    .cta-phone a:hover { color: var(--gold); }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding-block: var(--sp-8); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); flex-wrap: wrap; }
+    .footer-brand { font-family: var(--ff-display); font-size: 0.8rem; letter-spacing: 0.12em; color: var(--text-sub); }
+    .footer-right { font-size: 0.67rem; color: var(--text-muted); letter-spacing: 0.08em; }
+    .footer-hours { font-size: 0.67rem; color: var(--text-muted); letter-spacing: 0.06em; text-align: center; flex-basis: 100%; padding-top: var(--sp-2); border-top: 1px solid var(--border); }
+    [data-theme="light"] { --bg: oklch(96% 0.022 295); --surface: oklch(92% 0.04 295); --surface-hi: oklch(87% 0.058 295); --gold: oklch(38% 0.13 295); --gold-dim: oklch(52% 0.11 295); --text: oklch(14% 0.04 295); --text-sub: oklch(32% 0.09 295); --text-muted: oklch(38% 0.09 295); --border: oklch(80% 0.06 295); --border-hi: oklch(68% 0.09 295); }
+    [data-theme="light"] .nav.scrolled { background: oklch(95% 0.025 295 / 0.94); }
+    [data-theme="light"] .btn-primary { color: oklch(98% 0 0); }
+    .r { opacity: 0; transform: translateY(18px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .r.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.32s; }
+    @media (prefers-reduced-motion: reduce) { .r { opacity: 1; transform: none; transition: none; } }
+    @media (max-width: 640px) { .nav-logo-img { width: 28px; height: 28px; } .pricing-row { grid-template-columns: 1fr auto; } .pricing-dur { display: none; } .footer-inner { flex-direction: column; align-items: flex-start; gap: var(--sp-2); } }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Spellwork & Ritual Guidance",
+    "description": "Spellwork consultation and ritual guidance with Dalena — grounded in eastern and western spiritual traditions. Virtual sessions that help you set powerful intentions and design meaningful rituals.",
+    "url": "https://lavendermoontarot.com/spellwork/",
+    "serviceType": "Spiritual Guidance",
+    "provider": { "@type": "ProfessionalService", "name": "Lavender Moon", "url": "https://lavendermoontarot.com/", "telephone": "+17145197650" },
+    "areaServed": { "@type": "Country", "name": "United States" },
+    "availableChannel": { "@type": "ServiceChannel", "serviceType": "Online", "availableLanguage": "English" },
+    "offers": [
+      { "@type": "Offer", "name": "30-Minute Spellwork Consultation", "price": "44", "priceCurrency": "USD", "url": "https://cal-zentara.github.io/lavender-moon-intake/" },
+      { "@type": "Offer", "name": "1-Hour Spellwork Consultation", "price": "77", "priceCurrency": "USD", "url": "https://cal-zentara.github.io/lavender-moon-intake/" }
+    ],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "ratingCount": "5" }
+  }
+  </script>
+</head>
+
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="nav" id="nav">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">
+          <img src="../assets/7384E367-94A1-4CEC-8BF3-B7EF95E02DEF.png" alt="Lavender Moon logo" class="nav-logo-img">
+          <span class="nav-brand-text">Lavender Moon</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#shop">Shop</a></li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);flex-shrink:0;">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode"><span id="theme-icon">☽</span></button>
+          <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="16" y2="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="11" x2="16" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book a Session &nbsp;→</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/#services">Services</a>
+    <a href="/#about">About</a>
+    <a href="/#testimonials">Testimonials</a>
+    <a href="/#shop">Shop</a>
+    <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book a Session &nbsp;→</a>
+  </div>
+
+  <main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <span class="eyebrow hero-eyebrow r">Spellwork &nbsp;·&nbsp; Ritual Guidance &nbsp;·&nbsp; Intention Work</span>
+          <h1 class="r d1">Intention<br>Made<br>Powerful</h1>
+          <p class="hero-sub r d2">
+            Spellwork isn't magic for magic's sake — it's a structured, intentional practice that aligns your energy
+            with what you want to call in. Dalena guides you through it using both eastern and western traditions
+            rooted in her ancestral lineage.
+          </p>
+          <div class="hero-ctas r d3">
+            <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book a Consultation &nbsp;→</a>
+            <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap r d1">
+          <img src="../assets/0D5C05C4-6CF5-4FCF-9C32-C464ACE58DBA (1) - Copy.png" alt="Candles and crystals for spiritual ritual" loading="lazy">
+          <div class="hero-price-tag">
+            <div class="hero-price-label">Starting at</div>
+            <div class="hero-price-value">$44</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lead-bar">
+    <div class="wrap">
+      <div class="lead-bar-inner">
+        <p>Text for a free consultation — spellwork, life direction &amp; intuitive guidance</p>
+        <a href="tel:+17145197650">(714) 519-7650</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="what-you-get">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">What's Included</span>
+        <h2>What Happens in a Spellwork Session</h2>
+        <p>Every session is personalized to your specific intention and situation.</p>
+      </div>
+      <div class="what-grid">
+        <div class="what-item r">
+          <div class="what-num">01</div>
+          <h3>Intention Clarity</h3>
+          <p>Before any working begins, Dalena helps you identify exactly what you're calling in — and how to frame it for energetic alignment. A vague intention produces vague results. This step matters.</p>
+        </div>
+        <div class="what-item r d1">
+          <div class="what-num">02</div>
+          <h3>Ritual Design</h3>
+          <p>She guides you through the elements, timing, and tools that will amplify your specific working — moon phases, herbs, crystals, candles, sigils, or any combination that fits your practice and what's available to you.</p>
+        </div>
+        <div class="what-item r d2">
+          <div class="what-num">03</div>
+          <h3>Ancestral & Elemental Wisdom</h3>
+          <p>Dalena draws on both eastern and western lineages from her own ancestral background — grounding your work in real tradition rather than trend-based practice, and making it uniquely yours.</p>
+        </div>
+        <div class="what-item r d3">
+          <div class="what-num">04</div>
+          <h3>Follow-Through Guidance</h3>
+          <p>Spellwork is a practice, not a one-time event. Dalena advises on how to tend your working after the session ends — what to watch for, how to stay in alignment, and when to refresh or close the working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-it-works" style="background: var(--surface); border-block: 1px solid var(--border);">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">The Process</span>
+        <h2>How It Works</h2>
+        <p>Simple, grounded, and entirely online.</p>
+      </div>
+      <div class="steps">
+        <div class="step r">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Fill Out the Intake Form</h3>
+            <p>A short form collects your name, the service you want, and your date of birth. Takes two minutes. This helps Dalena begin sensing what approach will be most aligned for your specific situation.</p>
+          </div>
+        </div>
+        <div class="step r d1">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Choose Your Appointment</h3>
+            <p>After submitting, you're taken directly to Dalena's Google Calendar to pick a time. Available Monday–Friday 4pm–12am PT, Saturday 12pm–8pm PT.</p>
+          </div>
+        </div>
+        <div class="step r d2">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Connect via Zoom or Phone</h3>
+            <p>At your session time, come ready to talk openly about what you're working toward. The more honest you are about what you actually want, the more effective the guidance can be.</p>
+          </div>
+        </div>
+        <div class="step r d3">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Leave With a Clear Working</h3>
+            <p>By the end of the session, you'll have a clear, personalized ritual or working — exactly what to do, when to do it, and how to sustain it. No guesswork.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">Sessions & Pricing</span>
+        <h2>Choose Your Session</h2>
+        <p>Both options include personalized ritual design, intention clarity, and follow-through guidance.</p>
+      </div>
+      <div class="pricing-wrap r">
+        <span class="eyebrow">Live Sessions via Zoom or Phone</span>
+        <div class="pricing-row">
+          <span class="pricing-name">Spellwork & Ritual Guidance Consultation</span>
+          <span class="pricing-dur">30 minutes</span>
+          <span class="pricing-price">$44</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-name">Spellwork & Ritual Guidance Consultation</span>
+          <span class="pricing-dur">1 hour</span>
+          <span class="pricing-price">$77</span>
+        </div>
+        <div class="pricing-cta-wrap">
+          <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary">Book Your Consultation &nbsp;→</a>
+          <span class="pricing-note">Or text for a free consult first &nbsp;·&nbsp; <a href="tel:+17145197650" style="color:var(--gold-dim)">(714) 519-7650</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--surface); border-block: 1px solid var(--border);">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">From Clients</span>
+        <h2>What People Say</h2>
+      </div>
+      <div class="testi-static">
+        <div class="testi-card r">
+          <p>Wow, I feel so inspired and uplifted after our session. Everything resonated deeply. Thank you for your incredible insight and guidance. ✦</p>
+          <cite>Verified Client</cite>
+        </div>
+        <div class="testi-card r d1">
+          <p>I came with so much heaviness, but your reading brought me peace and clarity. You have a truly magical gift.</p>
+          <cite>Verified Client</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head r">
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently Asked</h2>
+      </div>
+      <div class="faq-list r">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What kind of spellwork does Dalena guide?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Dalena works across a range of intentions — love and attraction, protection, clearing, abundance, releasing what no longer serves, and manifesting specific outcomes. Her approach draws from both eastern and western traditions, including ancestral practices passed through her lineage. She doesn't follow a single tradition rigidly — she works with what's most aligned for you.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do I need any materials or tools beforehand?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Not necessarily before the session — Dalena will guide you on exactly what's needed as part of the consultation. If you already have candles, crystals, herbs, or other tools, let her know and she'll incorporate them. If you have nothing, she'll suggest simple, accessible alternatives. Effective spellwork doesn't require a fully stocked altar.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is spellwork safe?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            When done with clear intention, respect, and proper grounding — yes. Dalena approaches all spellwork ethically and with integrity. She won't guide workings intended to harm others or override another person's free will. The work is always focused on your own energy, alignment, and what you are calling into your own life.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do I need to be religious or follow a specific path?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            No. Dalena's approach is non-dogmatic — she doesn't require you to follow any religion, tradition, or belief system. Spellwork, at its core, is about focused intention and energy. You can be new to the practice, spiritually curious, or deeply rooted in your own path and the session will meet you where you are.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How soon will I see results?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            There's no fixed timeline — energy moves at its own pace and depends on the nature of the working, how aligned your intention is, and what else is at play in your life. Some things shift quickly. Others take weeks or months to fully manifest. Dalena will give you a realistic sense of what to expect and how to tend the working in the meantime.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is the 30-minute or 1-hour session right for me?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            The 30-minute session is good for a single, focused intention — one working you want to plan and execute. The 1-hour session gives space to explore the deeper context behind what you're calling in, design a more elaborate ritual, ask questions, and get thorough guidance on follow-through. If you're new to spellwork or working with something complex, the hour is the better starting point.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I text for a free consultation first?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes — and Dalena specifically offers free text consultations for spellwork. If you're unsure whether a session is right for your situation, text her at (714) 519-7650 before booking. She'll let you know what she's picking up and what might be most aligned for you.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="wrap">
+      <span class="eyebrow r">Ready?</span>
+      <h2 class="r d1">Book Your Spellwork Consultation</h2>
+      <p class="r d2">30 minutes or 1 hour. Zoom or phone. Available worldwide.</p>
+      <a href="https://cal-zentara.github.io/lavender-moon-intake/" target="_blank" rel="noopener" class="btn btn-primary r d3">Book a Consultation &nbsp;→</a>
+      <p class="cta-phone r">Or text for a free consultation first: <a href="tel:+17145197650">(714) 519-7650</a></p>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <span class="footer-brand">Lavender Moon</span>
+        <span class="footer-right">© 2026 &nbsp;·&nbsp; <a href="/" style="color:inherit;">lavendermoontarot.com</a></span>
+        <span class="footer-hours">Hours: Mon – Fri 4pm – 12am &nbsp;·&nbsp; Sat 12pm – 8pm &nbsp;·&nbsp; Closed Sundays</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.r').forEach(el => io.observe(el));
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    const saved = localStorage.getItem('lm-theme');
+    if (saved) { document.documentElement.setAttribute('data-theme', saved); icon.textContent = saved === 'light' ? '☀' : '☽'; }
+    toggle.addEventListener('click', () => { const current = document.documentElement.getAttribute('data-theme'); const next = current === 'light' ? 'dark' : 'light'; document.documentElement.setAttribute('data-theme', next); localStorage.setItem('lm-theme', next); icon.textContent = next === 'light' ? '☀' : '☽'; });
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); hamburger.setAttribute('aria-expanded', 'true'); });
+    closeBtn.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }));
+    document.querySelectorAll('.faq-question').forEach(btn => { btn.addEventListener('click', () => { const item = btn.closest('.faq-item'); const isOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded', 'false'); }); if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); } }); });
+  </script>
+
+</body>
+</html>
