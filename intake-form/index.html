@@ -391,10 +391,10 @@
       <p>Thank you. Dalena has your information and is ready for your session.<br>Click below to choose your date and time.</p>
       <a href="https://calendar.app.google/1MGnax6DEzcqBokH6" target="_blank" rel="noopener" class="book-btn">Choose Your Appointment →</a>
 
-      <div class="member-divider">
+      <div class="member-divider" id="memberDivider">
         <span>Interested in a membership?</span>
       </div>
-      <div class="member-options">
+      <div class="member-options" id="memberOptions">
         <a href="https://square.link/u/SrOGfL4X" target="_blank" rel="noopener" class="member-btn">
           <span class="member-label">Monthly Membership</span>
           <span class="member-price">$150 / mo</span>
@@ -413,11 +413,16 @@
     const form = document.getElementById('intakeForm');
     const confirmScreen = document.getElementById('confirmScreen');
     const submitBtn = document.getElementById('submitBtn');
+    const memberDivider = document.getElementById('memberDivider');
+    const memberOptions = document.getElementById('memberOptions');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
+
+      const service = form.querySelector('[name="service"]').value;
+      const isMembership = service.toLowerCase().includes('membership');
 
       try {
         const res = await fetch(form.action, {
@@ -427,6 +432,11 @@
         });
 
         if (res.ok) {
+          // Show membership upsell only for non-membership bookings
+          if (isMembership) {
+            memberDivider.style.display = 'none';
+            memberOptions.style.display = 'none';
+          }
           form.classList.add('hidden');
           confirmScreen.classList.add('visible');
           window.scrollTo({ top: 0, behavior: 'smooth' });
