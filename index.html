@@ -382,35 +382,20 @@
       margin-top: var(--sp-1);
     }
 
-    /* Soul Blueprint highlight — image banner */
-    .soul-bp-banner {
-      margin-top: var(--sp-12);
-      overflow: hidden;
-      position: relative;
+    /* Featured service card — Full Soul Blueprint */
+    .service-row--featured {
+      grid-column: span 2;
+      border-color: oklch(73% 0.08 57 / 0.4);
     }
-    .soul-bp-banner img {
-      width: 100%;
-      max-height: 420px;
-      object-fit: cover;
-      object-position: center 65%;
-      opacity: 0.75;
+    .service-row--featured .service-thumb {
+      height: 380px;
     }
-    .soul-bp-banner-caption {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: var(--sp-3);
-      padding: var(--sp-8);
-    }
-    .soul-bp-banner-caption .eyebrow { color: var(--gold); }
-    .soul-bp-banner-caption p {
-      font-size: 0.85rem;
-      color: var(--text-sub);
-      max-width: 50ch;
+    .service-featured-badge {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--sp-1);
     }
 
     .services-note {
@@ -1007,10 +992,9 @@
       /* Service rows — reduce gap so long names don't collide with price */
       .service-row { column-gap: var(--sp-4); padding-block: var(--sp-4); }
 
-      /* Soul BP banner — hide body copy, keep heading */
-      .soul-bp-banner img  { max-height: 260px; object-position: center 65%; }
-      .soul-bp-banner-caption p { display: none; }
-      .soul-bp-banner-caption { gap: var(--sp-2); }
+      /* Featured card — full width on mobile too */
+      .service-row--featured { grid-column: span 1; }
+      .service-row--featured .service-thumb { height: 260px; }
 
       /* About — tighten up */
       .about-text h2      { margin-bottom: var(--sp-4); }
@@ -1251,28 +1235,15 @@
             <span class="service-price">$111</span>
           </div>
         </a>
-        <a class="service-row r d3" href="https://square.link/u/H6xwb22K" target="_blank">
+        <a class="service-row service-row--featured r d3" href="https://square.link/u/H6xwb22K" target="_blank">
           <img class="service-thumb" src="assets/A51B6781-A7AE-41C6-AC9C-F5B19E9BF177.png" alt="Full Soul Blueprint Reading">
           <div class="service-info">
+            <span class="service-featured-badge">Featured</span>
             <span class="service-name">Full Soul Blueprint Reading</span>
             <span class="service-dur">1 hour 15 minutes</span>
             <span class="service-price">$222</span>
           </div>
         </a>
-      </div>
-
-      <!-- Soul Blueprint visual -->
-      <div class="soul-bp-banner r">
-        <img
-          src="assets/A51B6781-A7AE-41C6-AC9C-F5B19E9BF177.png"
-          alt="Soul Blueprint Reading — astrology and destiny matrix"
-          loading="lazy"
-        >
-        <div class="soul-bp-banner-caption">
-          <span class="eyebrow">Featured</span>
-          <h3>Soul Blueprint Reading</h3>
-          <p>Uncover the life planned out at your birth — astrology, life timelines, karmic themes, and more.</p>
-        </div>
       </div>
 
       <p class="services-note r">
