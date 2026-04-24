@@ -527,6 +527,15 @@
       </div>
     </div>
 
+    <!-- CONFIRMATION — live session booking -->
+    <div class="confirm-screen" id="confirmLiveSession">
+      <div class="confirm-icon">✦</div>
+      <h2>Details Received</h2>
+      <p>Complete your session payment below.<br>After payment you'll be redirected to choose your date and time.</p>
+      <a href="#" target="_blank" rel="noopener" class="book-btn" id="liveSessionPayBtn">Complete Payment →</a>
+      <p style="margin-top: 16px; font-size: 0.8rem; color: var(--text-muted);">You'll be taken to the booking calendar automatically after payment.</p>
+    </div>
+
     <!-- CONFIRMATION — membership booking -->
     <div class="confirm-screen" id="confirmMembership">
       <div class="confirm-icon">✦</div>
@@ -541,7 +550,9 @@
     const form = document.getElementById('intakeForm');
     const confirmRegular = document.getElementById('confirmRegular');
     const confirmMembership = document.getElementById('confirmMembership');
+    const confirmLiveSession = document.getElementById('confirmLiveSession');
     const memberPayBtn = document.getElementById('memberPayBtn');
+    const liveSessionPayBtn = document.getElementById('liveSessionPayBtn');
     const submitBtn = document.getElementById('submitBtn');
     const birthSection = document.getElementById('birthSection');
     const dobInput = document.getElementById('dobInput');
@@ -561,6 +572,12 @@
       'monthly': 'https://square.link/u/SrOGfL4X',
       'weekly': 'https://square.link/u/gM6WUXcC'
     };
+    const sessionLinks = [
+      { match: '$222', url: 'https://square.link/u/H6xwb22K' },
+      { match: '$111', url: 'https://square.link/u/iDOIfmp6' },
+      { match: '$77',  url: 'https://square.link/u/Milecayl' },
+      { match: '$44',  url: 'https://square.link/u/ovWr4Nrr' }
+    ];
 
     // Highlight checked items + toggle birth section
     document.querySelectorAll('.service-item input').forEach(cb => {
@@ -592,10 +609,11 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
 
-      const selected = checked.map(c => c.value.toLowerCase());
-      const isWeekly = selected.some(s => s.includes('weekly'));
-      const isMonthly = selected.some(s => s.includes('monthly'));
+      const selected = checked.map(c => c.value);
+      const isWeekly = selected.some(s => s.toLowerCase().includes('weekly'));
+      const isMonthly = selected.some(s => s.toLowerCase().includes('monthly'));
       const isMembership = isWeekly || isMonthly;
+      const sessionLink = sessionLinks.find(l => selected.some(s => s.includes(l.match)));
 
       try {
         const res = await fetch(form.action, {
@@ -609,6 +627,9 @@
           if (isMembership) {
             memberPayBtn.href = isWeekly ? memberLinks.weekly : memberLinks.monthly;
             confirmMembership.classList.add('visible');
+          } else if (sessionLink) {
+            liveSessionPayBtn.href = sessionLink.url;
+            confirmLiveSession.classList.add('visible');
           } else {
             confirmRegular.classList.add('visible');
           }
