@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavender x Moon — Discovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #8B6DB5;
+      --primary-dark: #6B4D8A;
+      --primary-light: #b49dd4;
+      --accent: #C9A0B4;
+      --bg: #110d1c;
+      --text: #f2ecfa;
+      --text-muted: #9b8ab5;
+      --card: rgba(139,109,181,0.07);
+      --card-hover: rgba(139,109,181,0.14);
+      --border: rgba(139,109,181,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse at 15% 15%, rgba(139,109,181,0.13) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 85%, rgba(201,160,180,0.09) 0%, transparent 55%);
+    }
+
+    #progress-bar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(17,13,28,0.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 13px 28px; display: none; align-items: center; gap: 16px;
+    }
+    #progress-label { font-size: 12px; color: var(--text-muted); white-space: nowrap; min-width: 110px; }
+    .progress-track { flex: 1; height: 2px; background: rgba(139,109,181,0.2); border-radius: 2px; overflow: hidden; }
+    #progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 2px; transition: width 0.45s ease; width: 0%; }
+    #progress-pct { font-size: 12px; color: var(--primary-light); min-width: 34px; text-align: right; }
+
+    #toast {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--primary-dark); color: #fff;
+      padding: 9px 16px; border-radius: 8px; font-size: 12px;
+      opacity: 0; transform: translateY(6px); transition: all 0.3s;
+      pointer-events: none; z-index: 999;
+    }
+    #toast.show { opacity: 1; transform: translateY(0); }
+
+    .container { max-width: 700px; margin: 0 auto; padding: 64px 24px 120px; }
+
+    .header { text-align: center; margin-bottom: 60px; }
+    .header-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 8vw, 76px);
+      font-weight: 300; line-height: 1.05; margin-bottom: 16px;
+    }
+    .header-line { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, var(--primary), transparent); margin: 18px auto; }
+    .header p { color: var(--text-muted); font-size: 15px; line-height: 1.75; max-width: 440px; margin: 0 auto; }
+
+    .section { display: none; animation: fadeUp 0.45s ease; }
+    .section.active { display: block; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+    #section-0 { text-align: center; padding: 32px 0; }
+    .intro-moon { font-size: 52px; margin-bottom: 28px; display: block; }
+    .intro-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px 40px; margin-bottom: 36px; text-align: left;
+    }
+    .intro-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--primary-light); margin-bottom: 14px; }
+    .intro-card p { color: var(--text-muted); line-height: 1.8; font-size: 14px; margin-bottom: 10px; }
+    .intro-steps { list-style: none; margin-top: 20px; }
+    .intro-steps li { display: flex; align-items: center; gap: 12px; padding: 10px 0; font-size: 13px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .intro-steps li:last-child { border: none; }
+    .step-num { width: 22px; height: 22px; background: rgba(139,109,181,0.18); border: 1px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary-light); flex-shrink: 0; }
+
+    .section-tag { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .section-desc { color: var(--text-muted); font-size: 14px; line-height: 1.75; margin-bottom: 40px; }
+
+    .question { margin-bottom: 34px; }
+    .question label { display: block; font-size: 15px; font-weight: 500; margin-bottom: 12px; line-height: 1.5; }
+    .optional { font-size: 12px; color: var(--text-muted); font-weight: 300; margin-left: 5px; }
+
+    input[type="text"], textarea {
+      width: 100%; background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 13px 16px; color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      outline: none; transition: border-color 0.2s, background 0.2s;
+    }
+    input[type="text"]:focus, textarea:focus { border-color: var(--primary); background: rgba(139,109,181,0.11); }
+    input[type="text"]::placeholder, textarea::placeholder { color: var(--text-muted); }
+    textarea { resize: vertical; min-height: 96px; line-height: 1.6; }
+
+    .choices { display: flex; flex-wrap: wrap; gap: 9px; }
+    .choice-btn {
+      background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+      padding: 9px 17px; color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif; font-size: 13px;
+      cursor: pointer; transition: all 0.18s; user-select: none;
+    }
+    .choice-btn:hover { border-color: var(--primary); color: var(--text); background: var(--card-hover); }
+    .choice-btn.selected { background: rgba(139,109,181,0.22); border-color: var(--primary); color: var(--primary-light); }
+
+    .vibe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .vibe-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 22px 14px; cursor: pointer; transition: all 0.18s; user-select: none; text-align: center;
+    }
+    .vibe-card:hover { border-color: var(--primary); background: var(--card-hover); }
+    .vibe-card.selected { border-color: var(--primary); background: rgba(139,109,181,0.2); }
+    .vibe-emoji { font-size: 26px; margin-bottom: 8px; display: block; }
+    .vibe-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+    .vibe-sub { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .btn { padding: 13px 30px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; border: none; outline: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; box-shadow: 0 4px 18px rgba(139,109,181,0.3); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(139,109,181,0.4); }
+    .btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+    .btn-secondary { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+    .btn-secondary:hover { color: var(--text); border-color: var(--primary); }
+    .btn-xl { padding: 17px 48px; font-size: 15px; }
+
+    .error-msg { display: none; background: rgba(220,80,80,0.1); border: 1px solid rgba(220,80,80,0.3); color: #ff9090; padding: 12px 16px; border-radius: 8px; font-size: 13px; margin-top: 16px; }
+
+    #success-screen { display: none; text-align: center; padding: 80px 0; animation: fadeUp 0.5s ease; }
+    #success-screen .moon { font-size: 60px; margin-bottom: 24px; display: block; }
+    #success-screen h2 { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--primary-light); margin-bottom: 16px; }
+    #success-screen p { color: var(--text-muted); font-size: 15px; line-height: 1.75; max-width: 420px; margin: 0 auto; }
+
+    @media (max-width: 600px) {
+      .container { padding: 40px 16px 100px; }
+      .intro-card { padding: 24px 20px; }
+      .vibe-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav { flex-direction: column-reverse; gap: 10px; }
+      .btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar">
+  <span id="progress-label">Section 1 of 6</span>
+  <div class="progress-track"><div id="progress-fill"></div></div>
+  <span id="progress-pct">0%</span>
+</div>
+
+<div id="toast">✓ Progress saved</div>
+
+<div class="container">
+
+  <div id="header" class="header">
+    <p class="header-eyebrow">Discovery Form</p>
+    <h1>Lavender x Moon</h1>
+    <div class="header-line"></div>
+    <p>Everything Cal needs to build something beautiful for your practice.</p>
+  </div>
+
+  <!-- Intro -->
+  <div class="section active" id="section-0">
+    <span class="intro-moon">🌙</span>
+    <div class="intro-card">
+      <h2>Before we begin</h2>
+      <p>This form gives Cal everything he needs to understand your business before building anything — so the result actually fits you, not just "looks spiritual."</p>
+      <p>Takes about 10–12 minutes. Go at your own pace — your progress saves automatically.</p>
+      <ul class="intro-steps">
+        <li><span class="step-num">1</span> About you & your business</li>
+        <li><span class="step-num">2</span> Services & offers</li>
+        <li><span class="step-num">3</span> Your ideal client</li>
+        <li><span class="step-num">4</span> Brand & online presence</li>
+        <li><span class="step-num">5</span> Website vision</li>
+        <li><span class="step-num">6</span> Timeline & next steps</li>
+      </ul>
+    </div>
+    <button class="btn btn-primary btn-xl" onclick="startForm()">Let's get started →</button>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section" id="section-1">
+    <p class="section-tag">Section 1 of 6</p>
+    <h2 class="section-title">About You & Your Business</h2>
+    <p class="section-desc">Let's start with the foundation — who you are and what you've built.</p>
+
+    <div class="question">
+      <label>What's the full name of your business?</label>
+      <input type="text" id="q1_1" placeholder="e.g. Lavender x Moon" />
+    </div>
+    <div class="question">
+      <label>How long have you been doing this work?</label>
+      <div class="choices" data-type="single" data-id="q1_2">
+        <button class="choice-btn">Less than 1 year</button>
+        <button class="choice-btn">1–3 years</button>
+        <button class="choice-btn">3–5 years</button>
+        <button class="choice-btn">5–10 years</button>
+        <button class="choice-btn">10+ years</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>Is this your full-time income or a side business?</label>
+      <div class="choices" data-type="single" data-id="q1_3">
+        <button class="choice-btn">Full-time — this is my main income</button>
+        <button class="choice-btn">Part-time — I have another job too</button>
+        <button class="choice-btn">Just starting to monetize</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>What makes your approach different from other readers or healers?</label>
+      <textarea id="q1_4" placeholder="What do clients experience with you that they don't get elsewhere?"></textarea>
+    </div>
+    <div class="question">
+      <label>What's your story? How did you get into this work? <span class="optional">optional</span></label>
+      <textarea id="q1_5" placeholder="The more real, the better — clients connect with origin stories."></textarea>
+    </div>
+    <div class="question">
+      <label>How did you hear about Cal?</label>
+      <div class="choices" data-type="multi" data-id="q1_6">
+        <button class="choice-btn">Referral</button>
+        <button class="choice-btn">TikTok</button>
+        <button class="choice-btn">Instagram</button>
+        <button class="choice-btn">Facebook</button>
+        <button class="choice-btn">Google</button>
+        <button class="choice-btn">Cold outreach</button>
+        <button class="choice-btn">Other</button>
+      </div>
+    </div>
+
+    <div class="nav"><div></div><button class="btn btn-primary" onclick="nextSection()">Next →</button></div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section" id="section-2">
+    <p class="section-tag">Section 2 of 6</p>
+    <h2 class="section-title">Services & Offers</h2>
+    <p class="section-desc">What you offer shapes the entire structure of the site.</p>
+
+    <div class="question">
+      <label>Which services do you currently offer? <span class="optional">select all that apply</span></label>
+      <div class="choices" data-type="multi" data-id="q2_1">
+        <button class="choice-btn">Tarot readings</button>
+        <button class="choice-btn">Oracle readings</button>
+        <button class="choice-btn">Mediumship</button>
+        <button class="choice-btn">Channeling</button>
+        <button class="choice-btn">Reiki / energy healing</button>
+        <button class="choice-btn">Spiritual life coaching</button>
+        <button class="choice-btn">Spellwork</button>
+        <button class="choice-btn">Astrology</button>
+        <button class="choice-btn">Human Design</button>
+        <button class="choice-btn">Something else</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>How do you deliver your sessions? <span class="optional">select all that apply</span></label>
+      <div class="choices" data-type="multi" data-id="q2_2">
+        <button class="choice-btn">Zoom / video call</button>
+        <button class="choice-btn">Phone</button>
+        <button class="choice-btn">In-person (local)</button>
+        <button class="choice-btn">Pre-recorded video</button>
+        <button class="choice-btn">Email readings</button>
+        <button class="choice-btn">Chat / DM</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>What's your most popular or flagship service?</label>
+      <input type="text" id="q2_3" placeholder="e.g. One-on-one tarot + mediumship on Zoom" />
+    </div>
+    <div class="question">
+      <label>Do you have pricing set? Share whatever you're comfortable with. <span class="optional">optional</span></label>
+      <textarea id="q2_4" placeholder="e.g. 30-min $75, 60-min $125 — or 'still figuring it out'" rows="3"></textarea>
+    </div>
+    <div class="question">
+      <label>Do you offer (or want to offer) any passive income products?</label>
+      <div class="choices" data-type="multi" data-id="q2_5">
+        <button class="choice-btn">Online courses</button>
+        <button class="choice-btn">Guided meditations</button>
+        <button class="choice-btn">Ebooks / guides</button>
+        <button class="choice-btn">Group workshops</button>
+        <button class="choice-btn">Membership / community</button>
+        <button class="choice-btn">Not right now</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>How do clients currently book you?</label>
+      <div class="choices" data-type="single" data-id="q2_6">
+        <button class="choice-btn">DMs (Instagram, etc.)</button>
+        <button class="choice-btn">Email</button>
+        <button class="choice-btn">Calendly or similar</button>
+        <button class="choice-btn">Booking app (Acuity, Square, etc.)</button>
+        <button class="choice-btn">Phone / text</button>
+        <button class="choice-btn">No system yet</button>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
+      <button class="btn btn-primary" onclick="nextSection()">Next →</button>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section" id="section-3">
+    <p class="section-tag">Section 3 of 6</p>
+    <h2 class="section-title">Your Ideal Client</h2>
+    <p class="section-desc">The more specific this is, the better the site speaks to exactly who you want to attract.</p>
+
+    <div class="question">
+      <label>Describe your ideal client — who are they and what are they going through when they find you?</label>
+      <textarea id="q3_1" placeholder="e.g. Women in their 30s going through a major life transition — grief, career change, divorce — who are open to spiritual guidance but don't know where to start."></textarea>
+    </div>
+    <div class="question">
+      <label>What transformation do clients experience after working with you?</label>
+      <textarea id="q3_2" placeholder="What do they leave with that they didn't have before?" rows="3"></textarea>
+    </div>
+    <div class="question">
+      <label>Where do most of your current clients find you? <span class="optional">select all that apply</span></label>
+      <div class="choices" data-type="multi" data-id="q3_3">
+        <button class="choice-btn">Instagram</button>
+        <button class="choice-btn">TikTok</button>
+        <button class="choice-btn">Facebook</button>
+        <button class="choice-btn">Google</button>
+        <button class="choice-btn">Word of mouth / referrals</button>
+        <button class="choice-btn">In-person events</button>
+        <button class="choice-btn">Spiritual directories</button>
+        <button class="choice-btn">My website</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>Are your clients mostly local (OC / SoCal) or do you work with people everywhere?</label>
+      <div class="choices" data-type="single" data-id="q3_4">
+        <button class="choice-btn">Mostly local</button>
+        <button class="choice-btn">Mostly online — anywhere</button>
+        <button class="choice-btn">Mix of both</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>What hesitations do new clients usually have before booking? <span class="optional">optional</span></label>
+      <textarea id="q3_5" placeholder="e.g. 'Is this real?', 'I've never done this before', 'Can you contact a specific person?'" rows="3"></textarea>
+    </div>
+
+    <div class="nav">
+      <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
+      <button class="btn btn-primary" onclick="nextSection()">Next →</button>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section" id="section-4">
+    <p class="section-tag">Section 4 of 6</p>
+    <h2 class="section-title">Brand & Online Presence</h2>
+    <p class="section-desc">This shapes the look, feel, and voice of everything Cal builds.</p>
+
+    <div class="question">
+      <label>How would you describe the vibe of your brand? <span class="optional">pick up to 2</span></label>
+      <div class="vibe-grid" data-type="vibe" data-id="q4_1" data-max="2">
+        <div class="vibe-card" data-value="Mystical & ethereal">
+          <span class="vibe-emoji">✨</span>
+          <div class="vibe-title">Mystical & Ethereal</div>
+          <div class="vibe-sub">Dream-like, cosmic, otherworldly</div>
+        </div>
+        <div class="vibe-card" data-value="Warm & nurturing">
+          <span class="vibe-emoji">🌿</span>
+          <div class="vibe-title">Warm & Nurturing</div>
+          <div class="vibe-sub">Safe, grounding, heart-centered</div>
+        </div>
+        <div class="vibe-card" data-value="Bold & powerful">
+          <span class="vibe-emoji">🔥</span>
+          <div class="vibe-title">Bold & Powerful</div>
+          <div class="vibe-sub">Confident, magnetic, unapologetic</div>
+        </div>
+        <div class="vibe-card" data-value="Calm & grounded">
+          <span class="vibe-emoji">🌙</span>
+          <div class="vibe-title">Calm & Grounded</div>
+          <div class="vibe-sub">Serene, minimal, peaceful</div>
+        </div>
+        <div class="vibe-card" data-value="Witchy & dark">
+          <span class="vibe-emoji">🖤</span>
+          <div class="vibe-title">Witchy & Dark</div>
+          <div class="vibe-sub">Deep, mysterious, edgy</div>
+        </div>
+        <div class="vibe-card" data-value="Soft & feminine">
+          <span class="vibe-emoji">🌸</span>
+          <div class="vibe-title">Soft & Feminine</div>
+          <div class="vibe-sub">Gentle, romantic, floral</div>
+        </div>
+      </div>
+    </div>
+    <div class="question">
+      <label>Do you have brand colors you love, or anything specific you want to keep? <span class="optional">optional</span></label>
+      <input type="text" id="q4_2" placeholder="e.g. 'Love the purple on my current site' or 'deep purple + gold'" />
+    </div>
+    <div class="question">
+      <label>Do you have professional photos of yourself?</label>
+      <div class="choices" data-type="single" data-id="q4_3">
+        <button class="choice-btn">Yes — good ones ready to use</button>
+        <button class="choice-btn">A few, nothing professional</button>
+        <button class="choice-btn">Just phone photos</button>
+        <button class="choice-btn">None yet</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>Do you have video content? (intro clips, Reels, recorded readings, etc.)</label>
+      <div class="choices" data-type="single" data-id="q4_4">
+        <button class="choice-btn">Yes — I post regularly</button>
+        <button class="choice-btn">A little, not much</button>
+        <button class="choice-btn">None yet</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>Which social platforms are you most active on? <span class="optional">select all that apply</span></label>
+      <div class="choices" data-type="multi" data-id="q4_5">
+        <button class="choice-btn">Instagram</button>
+        <button class="choice-btn">TikTok</button>
+        <button class="choice-btn">Facebook</button>
+        <button class="choice-btn">YouTube</button>
+        <button class="choice-btn">Pinterest</button>
+        <button class="choice-btn">None right now</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>You already have lavenderxmoon.org — what do you like about it, and what feels off? <span class="optional">optional</span></label>
+      <textarea id="q4_6" placeholder="What's working? What do you wish was different?" rows="3"></textarea>
+    </div>
+
+    <div class="nav">
+      <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
+      <button class="btn btn-primary" onclick="nextSection()">Next →</button>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section" id="section-5">
+    <p class="section-tag">Section 5 of 6</p>
+    <h2 class="section-title">Website Vision</h2>
+    <p class="section-desc">What you want visitors to feel, see, and do when they land on your site.</p>
+
+    <div class="question">
+      <label>What's the #1 thing you want visitors to do on your site?</label>
+      <div class="choices" data-type="single" data-id="q5_1">
+        <button class="choice-btn">Book a reading or session</button>
+        <button class="choice-btn">Learn about me and my services</button>
+        <button class="choice-btn">Buy a product or course</button>
+        <button class="choice-btn">Sign up for my email list</button>
+        <button class="choice-btn">Contact me to discuss</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>What pages do you want on the site? <span class="optional">select all that apply</span></label>
+      <div class="choices" data-type="multi" data-id="q5_2">
+        <button class="choice-btn">Home</button>
+        <button class="choice-btn">About me</button>
+        <button class="choice-btn">Services & pricing</button>
+        <button class="choice-btn">Book now</button>
+        <button class="choice-btn">Testimonials</button>
+        <button class="choice-btn">Shop / products</button>
+        <button class="choice-btn">Blog / journal</button>
+        <button class="choice-btn">FAQ</button>
+        <button class="choice-btn">Contact</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>Do you have copy (text / writing) ready, or will you need help with that?</label>
+      <div class="choices" data-type="single" data-id="q5_3">
+        <button class="choice-btn">I have it mostly written</button>
+        <button class="choice-btn">I have some — needs polishing</button>
+        <button class="choice-btn">I need help writing from scratch</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>Any websites — spiritual or not — that you love the look of? <span class="optional">optional</span></label>
+      <textarea id="q5_4" placeholder="Drop URLs or just describe what draws you to them." rows="3"></textarea>
+    </div>
+    <div class="question">
+      <label>Any must-have features? <span class="optional">select all that apply</span></label>
+      <div class="choices" data-type="multi" data-id="q5_5">
+        <button class="choice-btn">Booking calendar (Calendly, etc.)</button>
+        <button class="choice-btn">Email list / newsletter signup</button>
+        <button class="choice-btn">FAQ section</button>
+        <button class="choice-btn">Client testimonials</button>
+        <button class="choice-btn">Chat widget</button>
+        <button class="choice-btn">Shop / payment processing</button>
+        <button class="choice-btn">Nothing specific</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>What currently frustrates you most about your online presence? <span class="optional">optional</span></label>
+      <textarea id="q5_6" placeholder="What's the biggest thing holding you back right now?" rows="3"></textarea>
+    </div>
+
+    <div class="nav">
+      <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
+      <button class="btn btn-primary" onclick="nextSection()">Next →</button>
+    </div>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section" id="section-6">
+    <p class="section-tag">Section 6 of 6</p>
+    <h2 class="section-title">Timeline & Next Steps</h2>
+    <p class="section-desc">Almost done — just a few final details.</p>
+
+    <div class="question">
+      <label>When would you ideally like your new site to be live?</label>
+      <div class="choices" data-type="single" data-id="q6_1">
+        <button class="choice-btn">ASAP — within 2 weeks</button>
+        <button class="choice-btn">Within a month</button>
+        <button class="choice-btn">1–3 months</button>
+        <button class="choice-btn">No hard deadline</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>What's your budget range for this project?</label>
+      <div class="choices" data-type="single" data-id="q6_2">
+        <button class="choice-btn">$300–$500</button>
+        <button class="choice-btn">$500–$800</button>
+        <button class="choice-btn">$800–$1,200</button>
+        <button class="choice-btn">Let's talk about it</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>Is this a paid project, a favor, or something else?</label>
+      <div class="choices" data-type="single" data-id="q6_3">
+        <button class="choice-btn">Paid</button>
+        <button class="choice-btn">Favor / trade</button>
+        <button class="choice-btn">Revenue share</button>
+        <button class="choice-btn">Still figuring it out</button>
+      </div>
+    </div>
+    <div class="question">
+      <label>Anything else Cal should know before getting started? <span class="optional">optional</span></label>
+      <textarea id="q6_4" placeholder="Anything specific, personal, or important that didn't fit anywhere else." rows="4"></textarea>
+    </div>
+
+    <div id="error-msg" class="error-msg">Something went wrong. Please try again or text Cal directly.</div>
+
+    <div class="nav">
+      <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
+      <button class="btn btn-primary" id="submit-btn" onclick="submitForm()">Submit →</button>
+    </div>
+  </div>
+
+  <!-- Success -->
+  <div id="success-screen">
+    <span class="moon">🌙</span>
+    <h2>Thank you, Dalena.</h2>
+    <p>Cal has everything he needs to get started. He'll reach out soon with his plan for your site.</p>
+  </div>
+
+</div>
+
+<script>
+  const TOTAL = 6;
+  let current = 0;
+
+  function startForm() {
+    document.getElementById('progress-bar').style.display = 'flex';
+    showSection(1);
+  }
+
+  function showSection(n) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    const el = document.getElementById('section-' + n);
+    if (el) { el.classList.add('active'); current = n; }
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function nextSection() { if (current < TOTAL) showSection(current + 1); }
+  function prevSection() { if (current > 1) showSection(current - 1); }
+
+  function updateProgress() {
+    const pct = Math.round(((current - 1) / TOTAL) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-pct').textContent = pct + '%';
+    document.getElementById('progress-label').textContent = 'Section ' + current + ' of ' + TOTAL;
+  }
+
+  document.querySelectorAll('.choices').forEach(group => {
+    const type = group.dataset.type;
+    group.querySelectorAll('.choice-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (type === 'single') group.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.toggle('selected');
+        if (type === 'single') btn.classList.add('selected');
+        saveProgress();
+      });
+    });
+  });
+
+  document.querySelectorAll('.vibe-grid').forEach(group => {
+    const max = parseInt(group.dataset.max) || 99;
+    group.querySelectorAll('.vibe-card').forEach(card => {
+      card.addEventListener('click', () => {
+        if (card.classList.contains('selected')) {
+          card.classList.remove('selected');
+        } else if (group.querySelectorAll('.vibe-card.selected').length < max) {
+          card.classList.add('selected');
+        }
+        saveProgress();
+      });
+    });
+  });
+
+  function saveProgress() {
+    const data = { _section: current };
+    document.querySelectorAll('input[type="text"], textarea').forEach(el => {
+      if (el.id) data[el.id] = el.value;
+    });
+    document.querySelectorAll('.choices').forEach(g => {
+      if (g.dataset.id) data[g.dataset.id] = [...g.querySelectorAll('.choice-btn.selected')].map(b => b.textContent);
+    });
+    document.querySelectorAll('.vibe-grid').forEach(g => {
+      if (g.dataset.id) data[g.dataset.id] = [...g.querySelectorAll('.vibe-card.selected')].map(c => c.dataset.value);
+    });
+    localStorage.setItem('lxm_discovery', JSON.stringify(data));
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  document.querySelectorAll('input[type="text"], textarea').forEach(el => {
+    el.addEventListener('input', saveProgress);
+  });
+
+  function restoreProgress() {
+    const raw = localStorage.getItem('lxm_discovery');
+    if (!raw) return;
+    try {
+      const data = JSON.parse(raw);
+      Object.entries(data).forEach(([k, v]) => {
+        if (k.startsWith('_')) return;
+        const el = document.getElementById(k);
+        if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA')) el.value = v;
+      });
+      document.querySelectorAll('.choices').forEach(g => {
+        const vals = data[g.dataset.id];
+        if (!vals) return;
+        g.querySelectorAll('.choice-btn').forEach(b => {
+          if (vals.includes(b.textContent)) b.classList.add('selected');
+        });
+      });
+      document.querySelectorAll('.vibe-grid').forEach(g => {
+        const vals = data[g.dataset.id];
+        if (!vals) return;
+        g.querySelectorAll('.vibe-card').forEach(c => {
+          if (vals.includes(c.dataset.value)) c.classList.add('selected');
+        });
+      });
+      if (data._section > 0) {
+        document.getElementById('progress-bar').style.display = 'flex';
+        showSection(data._section);
+      }
+    } catch(e) {}
+  }
+
+  function collectAnswers() {
+    const out = { client_name: 'Lavender x Moon' };
+    document.querySelectorAll('input[type="text"], textarea').forEach(el => {
+      if (el.id && el.value.trim()) out[el.id] = el.value.trim();
+    });
+    document.querySelectorAll('.choices').forEach(g => {
+      if (g.dataset.id) {
+        const sel = [...g.querySelectorAll('.choice-btn.selected')].map(b => b.textContent);
+        if (sel.length) out[g.dataset.id] = sel.join(', ');
+      }
+    });
+    document.querySelectorAll('.vibe-grid').forEach(g => {
+      if (g.dataset.id) {
+        const sel = [...g.querySelectorAll('.vibe-card.selected')].map(c => c.dataset.value);
+        if (sel.length) out[g.dataset.id] = sel.join(', ');
+      }
+    });
+    return out;
+  }
+
+  async function submitForm() {
+    const btn = document.getElementById('submit-btn');
+    const errEl = document.getElementById('error-msg');
+    btn.disabled = true; btn.textContent = 'Sending…'; errEl.style.display = 'none';
+
+    const fd = new FormData();
+    Object.entries(collectAnswers()).forEach(([k, v]) => fd.append(k, v));
+
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 12000);
+
+    try {
+      const res = await fetch('https://formspree.io/f/xvzvnkay', {
+        method: 'POST', headers: { Accept: 'application/json' },
+        body: fd, signal: ctrl.signal
+      });
+      clearTimeout(timer);
+      if (res.ok) {
+        localStorage.removeItem('lxm_discovery');
+        document.getElementById('header').style.display = 'none';
+        document.getElementById('progress-bar').style.display = 'none';
+        document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+        document.getElementById('success-screen').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else { throw new Error(); }
+    } catch(e) {
+      clearTimeout(timer);
+      btn.disabled = false; btn.textContent = 'Submit →';
+      errEl.style.display = 'block';
+    }
+  }
+
+  restoreProgress();
+</script>
+</body>
+</html>
