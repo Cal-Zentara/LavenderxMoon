@@ -62,7 +62,11 @@
 - One Question reading: `https://square.link/u/UG1toelh`
 - Three Question reading: `https://square.link/u/1RkwOVWl`
 - Live session booking (Google Calendar): `https://calendar.app.google/1MGnax6DEzcqBokH6`
-- Live session payment links ($44/$77/$111/$222): **PENDING** — Cal needs to create in Square
+- Live session payment links ($44/$77/$111/$222):
+  - $44 Intuitive Tarot & Spiritual Guidance: https://square.link/u/ovWr4Nrr
+  - $77 Intuitive Tarot & Spiritual Guidance: https://square.link/u/Milecayl
+  - $111 Mini Soul Blueprint Reading: https://square.link/u/iDOIfmp6
+  - $222 Full Soul Blueprint Reading: https://square.link/u/H6xwb22K
 
 ### Known Gotchas
 
@@ -97,6 +101,15 @@ Dalena's spiritual business. Tarot readings, spiritual life coaching, Reiki, med
 11. [Next Steps](#next-steps)
 12. [Hero Video Prompt](#hero-video-prompt-kie-api--seedance-10)
 13. [AI Influencer — Mira](#ai-influencer--mira) ← paused April 21
+
+---
+
+## Dalena's Credentials
+
+| Account | Login | Password |
+|---|---|---|
+| Square | Lavenderxmoon222@gmail.com | Lavender222 |
+| TikTok | lavenderxmoon222@gmail.com | Lavender1 |
 
 ---
 
@@ -360,8 +373,11 @@ Displayed on her site as iMessage-style text bubbles. Use this format when build
 - [x] ~~Domain~~ — lavendermoontarot.com live, DNS → GitHub Pages
 - [x] ~~Membership tiers~~ — $150/mo and $500/mo Square links wired, intake form pre-selects membership
 - [x] ~~Intake form~~ — moved to lavendermoontarot.com/intake-form/, multi-select services, conditional birth fields
-- [ ] **Live session payment** — Cal needs to create 4 Square links ($44, $77, $111, $222), then add pay-first flow to confirmation screen (same as membership)
-- [ ] Chat widget — decide on provider (Tidio, Crisp, etc.) → swap `<!-- REPLACE -->` in HTML
+- [x] ~~Live session payment~~ — 4 Square links created + wired to intake form. Pay-first flow live. Square redirects to Google Calendar after payment.
+- [x] ~~Service cards~~ — now route through intake form instead of direct Square links
+- [x] ~~Intake form service selection~~ — switched to radio buttons (one pick only)
+- [ ] **Shop sale links** — Dalena needs to create $5.55 and $11.11 Square links. Current shop buttons still point to full-price items.
+- [ ] Chat widget — Crisp recommended. Waiting on Dalena's go-ahead → swap `<!-- REPLACE -->` in HTML (~10 min)
 - [ ] Google Business Profile — send Dalena instructions to claim at business.google.com
 
 ### Future Offers to Pitch Dalena (not yet discussed)
