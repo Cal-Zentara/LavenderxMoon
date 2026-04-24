@@ -441,33 +441,33 @@
         <div class="service-list" id="serviceList">
           <p class="service-group-label">Sessions</p>
           <label class="service-item">
-            <input type="checkbox" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 30 min ($44)">
+            <input type="radio" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 30 min ($44)">
             <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Intuitive Tarot &amp; Spiritual Guidance</span></span>
             <span class="svc-right"><span class="svc-duration">30 min</span><span class="svc-price">$44</span></span>
           </label>
           <label class="service-item">
-            <input type="checkbox" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 1 hr ($77)">
+            <input type="radio" name="service" value="Intuitive Tarot &amp; Spiritual Guidance — 1 hr ($77)">
             <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Intuitive Tarot &amp; Spiritual Guidance</span></span>
             <span class="svc-right"><span class="svc-duration">1 hr</span><span class="svc-price">$77</span></span>
           </label>
           <label class="service-item">
-            <input type="checkbox" name="service" value="Mini Soul Blueprint Reading — 45 min ($111)">
+            <input type="radio" name="service" value="Mini Soul Blueprint Reading — 45 min ($111)">
             <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Mini Soul Blueprint Reading</span></span>
             <span class="svc-right"><span class="svc-duration">45 min</span><span class="svc-price">$111</span></span>
           </label>
           <label class="service-item">
-            <input type="checkbox" name="service" value="Full Soul Blueprint Reading — 1 hr 15 min ($222)">
+            <input type="radio" name="service" value="Full Soul Blueprint Reading — 1 hr 15 min ($222)">
             <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Full Soul Blueprint Reading</span></span>
             <span class="svc-right"><span class="svc-duration">1 hr 15 min</span><span class="svc-price">$222</span></span>
           </label>
           <p class="service-group-label">Memberships</p>
           <label class="service-item">
-            <input type="checkbox" name="service" value="Monthly Membership — 1 session/mo ($150/mo)">
+            <input type="radio" name="service" value="Monthly Membership — 1 session/mo ($150/mo)">
             <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Monthly Membership — 1 session/mo</span></span>
             <span class="svc-right"><span class="svc-price">$150/mo</span></span>
           </label>
           <label class="service-item">
-            <input type="checkbox" name="service" value="Weekly Membership — 4 sessions/mo ($500/mo)">
+            <input type="radio" name="service" value="Weekly Membership — 4 sessions/mo ($500/mo)">
             <span class="svc-left"><span class="svc-dot">✓</span><span class="svc-name">Weekly Membership — 4 sessions/mo</span></span>
             <span class="svc-right"><span class="svc-price">$500/mo</span></span>
           </label>
@@ -582,7 +582,8 @@
     // Highlight checked items + toggle birth section
     document.querySelectorAll('.service-item input').forEach(cb => {
       cb.addEventListener('change', () => {
-        cb.closest('.service-item').classList.toggle('checked', cb.checked);
+        document.querySelectorAll('.service-item').forEach(el => el.classList.remove('checked'));
+        cb.closest('.service-item').classList.add('checked');
         updateBirthSection();
       });
     });
