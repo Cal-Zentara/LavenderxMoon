@@ -359,6 +359,13 @@
     .service-info {
       padding: 8px 14px 10px;
       display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .service-text {
+      display: flex;
       flex-direction: column;
       gap: 2px;
     }
@@ -379,7 +386,8 @@
       font-family: var(--ff-display);
       font-size: clamp(1.1rem, 1.6vw, 1.4rem);
       color: var(--gold);
-      margin-top: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* Featured service card — Full Soul Blueprint */
@@ -1214,33 +1222,41 @@
         <a class="service-row r" href="https://square.link/u/ovWr4Nrr" target="_blank">
           <img class="service-thumb" src="assets/service-tarot-44.png" alt="Intuitive Tarot & Spiritual Guidance">
           <div class="service-info">
-            <span class="service-name">1:1 Virtual Intuitive Tarot &amp; Spiritual Guidance</span>
-            <span class="service-dur">30 minutes</span>
+            <div class="service-text">
+              <span class="service-name">1:1 Virtual Intuitive Tarot &amp; Spiritual Guidance</span>
+              <span class="service-dur">30 minutes</span>
+            </div>
             <span class="service-price">$44</span>
           </div>
         </a>
         <a class="service-row r d1" href="https://square.link/u/Milecayl" target="_blank">
           <img class="service-thumb" src="assets/service-tarot-77.png" alt="Intuitive Tarot & Spiritual Guidance">
           <div class="service-info">
-            <span class="service-name">1:1 Virtual Intuitive Tarot &amp; Spiritual Guidance</span>
-            <span class="service-dur">1 hour</span>
+            <div class="service-text">
+              <span class="service-name">1:1 Virtual Intuitive Tarot &amp; Spiritual Guidance</span>
+              <span class="service-dur">1 hour</span>
+            </div>
             <span class="service-price">$77</span>
           </div>
         </a>
         <a class="service-row r d2" href="https://square.link/u/iDOIfmp6" target="_blank">
           <img class="service-thumb" src="assets/service-mini-blueprint.png" alt="Mini Soul Blueprint Reading">
           <div class="service-info">
-            <span class="service-name">Mini Soul Blueprint Reading</span>
-            <span class="service-dur">45 minutes</span>
+            <div class="service-text">
+              <span class="service-name">Mini Soul Blueprint Reading</span>
+              <span class="service-dur">45 minutes</span>
+            </div>
             <span class="service-price">$111</span>
           </div>
         </a>
         <a class="service-row service-row--featured r d3" href="https://square.link/u/H6xwb22K" target="_blank">
           <img class="service-thumb" src="assets/A51B6781-A7AE-41C6-AC9C-F5B19E9BF177.png" alt="Full Soul Blueprint Reading">
           <div class="service-info">
-            <span class="service-featured-badge">Featured</span>
-            <span class="service-name">Full Soul Blueprint Reading</span>
-            <span class="service-dur">1 hour 15 minutes</span>
+            <div class="service-text">
+              <span class="service-featured-badge">Featured</span>
+              <span class="service-name">Full Soul Blueprint Reading</span>
+              <span class="service-dur">1 hour 15 minutes</span>
+            </div>
             <span class="service-price">$222</span>
           </div>
         </a>
