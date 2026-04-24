@@ -392,20 +392,36 @@
 
     /* Featured service card — Full Soul Blueprint */
     .service-row--featured {
+      position: relative;
       grid-column: span 3;
-      border-color: oklch(73% 0.08 57 / 0.4);
+      border-color: oklch(73% 0.08 57 / 0.7);
+      box-shadow: 0 0 32px oklch(73% 0.08 57 / 0.18), 0 12px 48px rgba(0,0,0,0.55);
     }
     .service-row--featured .service-thumb {
-      height: auto;
-      max-height: 480px;
-      object-fit: contain;
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: center 55%;
+      display: block;
+    }
+    .service-row--featured .service-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(5,2,18,0.97) 0%, rgba(5,2,18,0.65) 55%, transparent 100%);
+      padding: 56px 28px 20px;
+      align-items: flex-end;
+    }
+    .service-row--featured .service-price {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
     }
     .service-featured-badge {
-      font-size: 0.65rem;
-      letter-spacing: 0.14em;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: var(--sp-1);
+      opacity: 0.85;
     }
 
     .services-note {
