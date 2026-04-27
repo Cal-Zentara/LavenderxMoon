@@ -59,8 +59,8 @@
 **External links (Square + Calendar):**
 - Monthly membership: `https://square.link/u/SrOGfL4X`
 - Weekly membership: `https://square.link/u/gM6WUXcC`
-- One Question reading: `https://square.link/u/UG1toelh`
-- Three Question reading: `https://square.link/u/1RkwOVWl`
+- One Question reading ($5.55 sale): `https://checkout.square.site/merchant/MLNDSV18193J7/checkout/QKOBEG76PMDSLBY7GNDSK3DA`
+- Three Question reading ($11.11 sale): `https://checkout.square.site/merchant/MLNDSV18193J7/checkout/SET24EIAPWARAA4TWXHSM3RZ`
 - Live session booking (Google Calendar): `https://calendar.app.google/1MGnax6DEzcqBokH6`
 - Live session payment links ($44/$77/$111/$222):
   - $44 Intuitive Tarot & Spiritual Guidance: https://square.link/u/ovWr4Nrr
@@ -97,19 +97,15 @@ Dalena's spiritual business. Tarot readings, spiritual life coaching, Reiki, med
 7. [Intake Form](#intake-form) ← live
 8. [Square Payment Links](#square-payment-links)
 9. [Key Decisions](#key-decisions)
-10. [Current Status](#current-status)
-11. [Next Steps](#next-steps)
-12. [Hero Video Prompt](#hero-video-prompt-kie-api--seedance-10)
-13. [AI Influencer — Mira](#ai-influencer--mira) ← paused April 21
+10. [Future Offers to Pitch Dalena](#future-offers-to-pitch-dalena-not-yet-discussed)
+11. [Hero Video Prompt](#hero-video-prompt-kie-api--seedance-10)
+12. [AI Influencer — Mira](#ai-influencer--mira) ← paused April 21
 
 ---
 
 ## Dalena's Credentials
 
-| Account | Login | Password |
-|---|---|---|
-| Square | Lavenderxmoon222@gmail.com | Lavender222 |
-| TikTok | lavenderxmoon222@gmail.com | Lavender1 |
+Stored in `../../credentials.md` (gitignored). Never commit logins to this repo.
 
 ---
 
@@ -338,8 +334,8 @@ Displayed on her site as iMessage-style text bubbles. Use this format when build
 
 | Item | Square Link |
 |---|---|
-| One Question Intuitive Tarot Reading (shop) | https://square.link/u/UG1toelh |
-| Three Question Intuitive Tarot Reading (shop) | https://square.link/u/1RkwOVWl |
+| One Question Intuitive Tarot Reading (shop — $5.55 sale) | https://checkout.square.site/merchant/MLNDSV18193J7/checkout/QKOBEG76PMDSLBY7GNDSK3DA |
+| Three Question Intuitive Tarot Reading (shop — $11.11 sale) | https://checkout.square.site/merchant/MLNDSV18193J7/checkout/SET24EIAPWARAA4TWXHSM3RZ |
 | Monthly Membership — $150/mo | https://square.link/u/SrOGfL4X |
 | Weekly Membership — $500/mo | https://square.link/u/gM6WUXcC |
 | Google Calendar booking | https://calendar.app.google/1MGnax6DEzcqBokH6 |
@@ -350,37 +346,13 @@ Displayed on her site as iMessage-style text bubbles. Use this format when build
 
 ---
 
-## Current Status
+## Current Status & Next Steps
 
-**v1.7 — Intake form moved to main domain, membership flow + service selector rebuilt.**
-
-- Website: live at https://lavendermoontarot.com/
-- Intake form: moved into main repo, now live at https://lavendermoontarot.com/intake-form/
-- 10 service pages live and in sitemap
-- Membership buttons pre-select service on intake form via URL param
-- Service selector: multi-select checkboxes with Sessions / Memberships groups
-- Birth details: conditional — only shows for Soul Blueprint / Astrology
-- Membership flow: pay first (Square) → Dalena contacts to book
-- Regular session payment: **NOT YET BUILT** — waiting on 4 Square links from Cal ($44/$77/$111/$222)
-- Chat widget: still placeholder `<!-- REPLACE -->` in index.html
+Tracked in `STATUS.md`. Don't duplicate state here.
 
 ---
 
-## Next Steps
-
-- [x] ~~Google Search Console~~ — verified + sitemap submitted. 10 pages indexed.
-- [x] ~~Service pages~~ — all 9 service pages live and indexed
-- [x] ~~Domain~~ — lavendermoontarot.com live, DNS → GitHub Pages
-- [x] ~~Membership tiers~~ — $150/mo and $500/mo Square links wired, intake form pre-selects membership
-- [x] ~~Intake form~~ — moved to lavendermoontarot.com/intake-form/, multi-select services, conditional birth fields
-- [x] ~~Live session payment~~ — 4 Square links created + wired to intake form. Pay-first flow live. Square redirects to Google Calendar after payment.
-- [x] ~~Service cards~~ — now route through intake form instead of direct Square links
-- [x] ~~Intake form service selection~~ — switched to radio buttons (one pick only)
-- [ ] **Shop sale links** — Dalena needs to create $5.55 and $11.11 Square links. Current shop buttons still point to full-price items.
-- [ ] Chat widget — Crisp recommended. Waiting on Dalena's go-ahead → swap `<!-- REPLACE -->` in HTML (~10 min)
-- [ ] Google Business Profile — send Dalena instructions to claim at business.google.com
-
-### Future Offers to Pitch Dalena (not yet discussed)
+## Future Offers to Pitch Dalena (not yet discussed)
 
 **These are ideas — not committed work. Pitch only if she asks about growing traffic.**
 
@@ -420,14 +392,6 @@ Displayed on her site as iMessage-style text bubbles. Use this format when build
 - **More service pages** (/reiki/, /channeling/, /spellwork/, /astrology-reading/, /oracle-reading/)
   - 5 more templates. Gets her to 10 service pages. Decent for local, limited for national.
   - Honest note: national SEO needs 30–50+ pages minimum. Pure service pages won't get her there alone — blog content + voice-driven orchestration would.
-- [x] ~~Gmail filter~~ — fixed via Formspree `_cc` field. Submissions auto-forward to Dalena.
-- [x] ~~/polish → /audit → /critique~~ — completed April 19. Score 15/20 → all P1/P2 issues resolved.
-- [x] ~~Local SEO foundation~~ — meta tags, schema, robots.txt, sitemap live April 19
-- [x] ~~Hero image~~ — new hero video `NewHero.mp4` deployed April 17
-- [x] ~~Booking link~~ — Google Calendar link wired to intake form
-- [x] ~~Shop product links~~ — both Square payment links live
-- [x] ~~Intake form~~ — built and live at lavender-moon-intake
-
 ---
 
 ## Hero Video Prompt (KIE API — Seedance 1.0)
