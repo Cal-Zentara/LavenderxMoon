@@ -1,0 +1,9 @@
+# GitHub Pages config — keep internal docs and planning files OFF the live site.
+# Anything listed here is not copied to the published site at lavendermoontarot.com.
+exclude:
+  - CLAUDE.md
+  - STATUS.md
+  - README.md
+  - ai-influencer/
+  - .claude/
+  - .gitignore

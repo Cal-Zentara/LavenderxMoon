@@ -1,0 +1,21 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# Local secrets — NEVER commit these
+.env
+.env.*
+credentials.md
+secrets.json
+*.key
+*.pem
+
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
+
+# Internal docs / planning — keep local only, NEVER in the public repo
+CLAUDE.md
+STATUS.md
+README.md
+ai-influencer/
